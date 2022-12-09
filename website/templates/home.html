@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <p>this is test page </p>
+
+    {% if names %}
+    {% for name in names %}
+    <p>{{name}}</p>
+    <p> napis {{name}} je nejlepsi</p>
+    {% endfor %}
+    {% else %}
+    <p>picu kundo </p>
+    {% endif %}
+
+{% endblock %}
