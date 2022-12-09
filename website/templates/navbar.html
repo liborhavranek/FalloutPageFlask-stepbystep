@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <a href="{{url_for('home')}}"> <img class="fallout-logo" src="{{url_for('static', filename='images/logo.png')}}" alt="Bootstrap"></a>
+      <a href="/home"> <img class="fallout-logo" src="{{url_for('static', filename='images/logo.png')}}" alt="Bootstrap"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,8 +30,8 @@
                   Přihlášení
                 </a>
             <ul class="dropdown-menu bg-dark">
-            <li><a class="dropdown-item nav-link" href="#">Přihlášení</a></li>
-            <li><a class="dropdown-item nav-link" href="#">Registrace</a></li>
+            <li><a class="dropdown-item nav-link" href="/login">Přihlášení</a></li>
+            <li><a class="dropdown-item nav-link" href="/sign_up">Registrace</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item nav-link" href="#">Odhlásit</a></li>
           </ul>
