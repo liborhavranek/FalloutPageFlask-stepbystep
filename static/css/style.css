@@ -1,0 +1,114 @@
+/* navbar section start */
+.fallout-logo {
+    width: 140px;
+    height: 70px;
+}
+
+.nav-link {
+color: rgb(221,183,36);
+font-family: 'Oswald', sans-serif;
+font-size: 2vw;
+}
+
+.nav-link:hover {
+    color: red;
+}
+/* navbar section end */
+
+
+/* description section start */
+.war{
+    font-size: 7vw;
+    color: rgb(221,183,36);
+    font-family: 'Rubik Distressed', cursive;
+    text-align: center;
+    margin-top: -24%;
+    padding-bottom: 3%;
+    
+}
+
+.description{
+    background-color: rgb(236,235,232);
+}
+
+.game-description{
+    margin-top: 16%;
+    font-size: 2vw;
+    font-family: 'Oswald', sans-serif;
+    text-align: justify;
+}
+
+.valut-boy{
+    margin-top: 24%;
+}
+/* description section end */
+
+/* dlc section start */
+.dlc{
+    background-color: black;
+    padding-bottom: 3%;
+}
+
+.card{
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-family: 'Oswald', sans-serif;
+}
+
+.card-text{
+    text-align: justify;
+}
+
+.war-1{
+    font-size: 7vw;
+    color: rgb(221,183,36);
+    font-family: 'Rubik Distressed', cursive;
+    text-align: center;
+    padding-bottom: 3%;
+    
+}
+/* dlc section end */
+
+/* special section start */
+.special{
+    background-color: rgb(236,235,232);
+}
+
+.specialdiv{
+    padding-left: 5%;
+    line-height: 1.8;
+}
+.specialdivimg{
+    padding-right: 5%;
+}
+
+.special-image{
+    width: 40%;
+    padding-top: 15%;
+}
+
+.image-col{
+    padding-right: 30%;
+}
+
+.special-text{
+    font-size: 4vw;
+    font-family: 'Oswald', bold;
+    text-align: center;
+    margin: auto;
+}
+
+.special-description{
+    font-size: 2vw;
+    font-family: 'Oswald', bold;
+    text-align: center;
+    margin: auto;
+}
+
+.game-description-1{
+    font-size: 2vw;
+    font-family: 'Oswald', sans-serif;
+    text-align: justify;
+}
+/* special section end */
