@@ -7,22 +7,22 @@
 <center>
 <h1>Přihlásit se </h1>
 <p>přihlášení tady ....</p>
-<form method="post">
+<form method="POST">
     <div class="mb-3">
       <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Přihlašovací email">
+      <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Přihlašovací email">
     </div>
     <div class="mb-3">
         <label for="username" class="form-label">Přihlašovací jméno:</label>
-        <input type="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Přihlašovací email">
+        <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" placeholder="Přihlašovací jméno">
       </div>
     <div class="mb-3">
       <label for="Password1" class="form-label">Heslo:</label>
-      <input type="password+" class="form-control" id="Password1" placeholder="Heslo">
+      <input type="password" name="password1" class="form-control" id="Password1" placeholder="Heslo">
     </div>
     <div class="mb-3">
         <label for="Password2" class="form-label">Heslo:</label>
-        <input type="password2" class="form-control" id="Password2" placeholder="Potvrdit Heslo">
+        <input type="password" name="password2" class="form-control" id="Password2" placeholder="Potvrdit Heslo">
       </div>
     <button type="submit" class="btn btn-primary">Registrovat</button>
   </form>
@@ -30,4 +30,6 @@
 </center>
 </div>
 </div>
+
+
 {% endblock %}
