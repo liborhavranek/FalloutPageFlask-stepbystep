@@ -7,24 +7,26 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login', methods=['GET', 'POST'])
+
+@auth.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email= request.form.get("email")
+        email = request.form.get("email")
         password = request.form.get("password")
-        
-        user = User.query.filter_by(email=email)
+        print(email)
+        print(password)
+        user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Úspěšně jsi se přihlásil', category='success')
+                flash("Úspěšně jsi se přihlásil", category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
                 flash('Zadal jsi nesprávné heslo', category='error')
         else:
-            flash('Zadal jsi nesprávné přihlašovací údaje.', category='error')
-            
-    return render_template('login.html')
+            flash('Email neexistuje', category='error')
+
+    return render_template("login.html")
 
 @auth.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
@@ -32,7 +34,8 @@ def sign_up():
         username= request.form.get("username")
         email= request.form.get("email")
         password1 = request.form.get("password1")
-        password2 = request.form.get("passsword2")
+        password2 = request.form.get("password2")
+
         
         email_exist = User.query.filter_by(email=email).first()
         user_exist = User.query.filter_by(username=username).first()
@@ -41,7 +44,7 @@ def sign_up():
         elif user_exist:
             flash('Toto přihlašovací jméno je již použito.', category='error')
         elif password1 != password2:
-            flash('Heslo a potvrzen9 hesla se musí shodovat.', category='error')
+            flash('Heslo a potvrzení hesla se musí shodovat.', category='error')
         elif len(username) < 6:
             flash('Přihlašovací jméno musí být delší než 5 znaků.', category='error')
         elif len(password1) < 8:
@@ -59,8 +62,12 @@ def sign_up():
     return render_template('signup.html')
 
 
+
 @login_required
 @auth.route('/logout')
 def logout():
     logout_user(current_user)
     return redirect(url_for('views.home.html'))
+
+
+
