@@ -98,3 +98,11 @@ def posts(username):
     return render_template('posts.html', user=current_user, posts=posts, username=username)
 
 
+@views.route('/post/<int:id>')
+@login_required
+def post(id):
+    post = Post.query.filter_by(id=id).first()
+    if not post:
+        flash('Příspěvek neexistuje', category='error')
+    else:
+        return render_template('post.html', post=post, id=id, user=current_user)

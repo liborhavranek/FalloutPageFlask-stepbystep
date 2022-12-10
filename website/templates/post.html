@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 <center>
-<h1>Příspěvky</h1>
-<br>
-{% for post in posts %}
+
+<h1>Příspěvek uživatele {{username}}</h1>
+
 
 <div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div">
     {{ post.id }} <br>
 <h5>{{ post.user.username }} <br></h5>
 <hr>
-    <h2><a href="/post/{{post.id}}">{{ post.title}}</a></h2> <br>
+<p>{{ post.title}}</p> <br>
     <p>{{ post.text|safe }}</p> <br>
 
     {{ post.date_created }} <br>
@@ -21,7 +20,10 @@
     <a href="/delete_post/{{post.id}}" class="btn btn-danger">Smazat</a>
     {% endif %}
 </div>
-{% endfor%}
+
+
+
 </center>
+
 
 {% endblock %}
