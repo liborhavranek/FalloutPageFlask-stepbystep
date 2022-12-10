@@ -9,10 +9,13 @@
 
 {% for post in posts %}
 
-<div class="shadow-lg p-3 mb-5 bg-body rounded mh-25 w-75">
+<div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div">
     {{ post.id }} <br>
 <h5>{{ post.user.username }} <br></h5>
-    {{ post.text|safe }} <br>
+<hr>
+<p>{{ post.title}}</p> <br>
+    <p>{{ post.text|safe }}</p> <br>
+
     {{ post.date_created }} <br>
     <hr>
     {% if user.id == post.author %}

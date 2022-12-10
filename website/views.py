@@ -18,16 +18,22 @@ def home():
 def create_post():
     if request.method == 'POST':
         text = request.form.get("text")
-        if not text:
-            flash('Příspěvek musí mít alespoň 5O znaků', category='error')
-        elif len(text) < 50:
-            flash('Příspěvek musí mít alespoň 5O znaků', category='error')
+        title = request.form.get("title")
+        if not title:
+            flash('Titulek musí mít alespoň 5 znaků', category='error')
+        elif len(title) < 5:
+            flash('Titulek musí mít alespoň 5 znaků', category='error')
         else:
-            post = Post(text=text, author=current_user.id)
-            db.session.add(post)
-            db.session.commit()
-            flash('Příspěvek byl přidán', category='success')
-            return redirect(url_for('views.post_board'))
+            if not text:
+                flash('Příspěvek musí mít alespoň 5O znaků', category='error')
+            elif len(text) < 50:
+                flash('Příspěvek musí mít alespoň 5O znaků', category='error')
+            else:
+                post = Post(text=text, title=title, author=current_user.id)
+                db.session.add(post)
+                db.session.commit()
+                flash('Příspěvek byl přidán', category='success')
+                return redirect(url_for('views.post_board'))
     return render_template('create_post.html', user=current_user)
 
 @views.route("/edit_post/<int:id>", methods=['GET', 'POST'])
@@ -36,16 +42,23 @@ def edit_post(id):
     post = Post.query.filter_by(id=id).first()
     if request.method == 'POST':
         text = request.form.get("text")
-        if not text:
-            flash('Příspěvek musí mít alespoň 5O znaků', category='error')
-        elif len(text) < 50:
-            flash('Příspěvek musí mít alespoň 5O znaků', category='error')
+        title = request.form.get("title")
+        if not title:
+            flash('Titulek musí mít alespoň 5 znaků', category='error')
+        elif len(title) < 5:
+            flash('Titulek musí mít alespoň 5 znaků', category='error')
         else:
-            post.text  = text
-            db.session.add(post)
-            db.session.commit()
-            flash('Příspěvek byl aktualizovan', category='success')
-            return redirect(url_for('views.post_board'))
+            if not text:
+                flash('Příspěvek musí mít alespoň 5O znaků', category='error')
+            elif len(text) < 50:
+                flash('Příspěvek musí mít alespoň 5O znaků', category='error')
+            else:
+                post.text = text
+                post.title = title
+                db.session.add(post)
+                db.session.commit()
+                flash('Příspěvek byl aktualizovan', category='success')
+                return redirect(url_for('views.post_board'))
     return render_template('edit_post.html', user=current_user, id=post.id, post=post )
     
 

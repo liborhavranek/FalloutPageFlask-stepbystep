@@ -113,7 +113,7 @@ font-size: 2vw;
 }
 /* special section end */
 
-
+/* alert section start */
 .alert{
     position: absolute;
     left: 0;
@@ -122,3 +122,14 @@ font-size: 2vw;
     width: 50%;
 
 }
+/* alert section end */
+
+/* post section end */
+.post-div p{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* post section end */
