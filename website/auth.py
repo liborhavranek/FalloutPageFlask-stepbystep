@@ -1,7 +1,7 @@
 # file for everything what is for logged users
 from flask import Blueprint,render_template, redirect, url_for, request, flash
 from . import db 
-from .models import User
+from .models import User, Post
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -26,7 +26,7 @@ def login():
         else:
             flash('Email neexistuje', category='error')
 
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 @auth.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
@@ -59,15 +59,15 @@ def sign_up():
             flash('Profil byl úspěšně vytvořen.')
             return redirect(url_for('views.home'))
         
-    return render_template('signup.html')
+    return render_template('signup.html', user=current_user)
 
 
 
 @login_required
 @auth.route('/logout')
 def logout():
-    logout_user(current_user)
-    return redirect(url_for('views.home.html'))
+    logout_user()
+    return redirect(url_for('views.home'))
 
 
 

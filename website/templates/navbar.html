@@ -27,13 +27,21 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {% if user.is_authenticated %}
+                  {{current_user.username}}
+                  {% else %}
                   Přihlášení
+                  {% endif %}
                 </a>
             <ul class="dropdown-menu bg-dark">
+             {% if user.is_authenticated %}
+             <li><a class="dropdown-item nav-link" href="/logout">Odhlásit</a></li>
+              {% else %}
             <li><a class="dropdown-item nav-link" href="/login">Přihlášení</a></li>
             <li><a class="dropdown-item nav-link" href="/sign_up">Registrace</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item nav-link" href="#">Odhlásit</a></li>
+            {% endif %}
+            
           </ul>
         </li>
         </ul>

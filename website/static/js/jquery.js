@@ -13,3 +13,7 @@ $(function () {
 
     fadeInOut();
 });
+
+$(function () {
+    $(".alert").fadeOut(4000)
+});

@@ -112,3 +112,13 @@ font-size: 2vw;
     text-align: justify;
 }
 /* special section end */
+
+
+.alert{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 50%;
+
+}
