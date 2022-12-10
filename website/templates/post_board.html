@@ -12,6 +12,10 @@
     {{ post.text|safe }} <br>
     {{ post.date_created }} <br>
     <hr>
+    {% if user.id == post.author %}
+    <a href="#" class="btn btn-secondary">Upravit</a>
+    <a href="/delete_post/{{post.id}}" class="btn btn-danger">Smazat</a>
+    {% endif %}
 </div>
 {% endfor%}
 </center>

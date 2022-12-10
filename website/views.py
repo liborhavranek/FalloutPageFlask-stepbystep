@@ -1,5 +1,5 @@
 # File for everything what is visible for everyone 
-from flask import Blueprint, render_template, request, flash, redirect
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User, Post
 from flask_login import login_user, logout_user, login_required, current_user
 from . import db
@@ -27,7 +27,7 @@ def create_post():
             db.session.add(post)
             db.session.commit()
             flash('Příspěvek byl přidán', category='success')
-            return redirect('views.home')
+            return redirect(url_for('views.post_board'))
     return render_template('create_post.html', user=current_user)
 
 
@@ -36,3 +36,16 @@ def create_post():
 def post_board():
     posts = Post.query.all()
     return render_template('post_board.html', user=current_user, posts=posts)
+
+@views.route('delete_post/<int:id>')
+@login_required
+def delete_post(id):
+    post = Post.query.filter_by(id=id).first()
+    if not post:
+        flash('Příspěvek neexistuje', category='error')
+    else:
+        db.session.delete(post)
+        db.session.commit()
+        flash('Příspěvek byl smazán', category='success')
+        return render_template('post_board.html', user=current_user, post=post )
+    
