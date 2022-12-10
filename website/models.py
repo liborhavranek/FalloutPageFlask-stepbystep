@@ -9,8 +9,9 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-    # pridani do databazevsech postu ktere uzivatel napise
+    # pridani do databazevsech postu a komentaru ktere uzivatel napise
     posts = db.relationship('Post', backref='user', passive_deletes=True)
+    # commments = db.relationship('Comment', backref='user', passive_deletes=True)
     
     
 class Post(db.Model):
@@ -18,10 +19,12 @@ class Post(db.Model):
     text = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
+    # commments = db.relationship('Comment', backref='user', passive_deletes=True)
+
     
-class Coment(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.Text, nullable=False)
-    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-    author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
-    post_id = db.Column(db.Integer, db.ForeignKey('post.id', ondelete="CASCADE"), nullable=False)
+# class Comment(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     text = db.Column(db.Text, nullable=False)
+#     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
+#     author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
+#     post_id = db.Column(db.Integer, db.ForeignKey('post.id', ondelete="CASCADE"), nullable=False)
