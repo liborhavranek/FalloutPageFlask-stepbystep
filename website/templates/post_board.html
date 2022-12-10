@@ -19,6 +19,7 @@
     {% if user.id == post.author %}
     <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>
     <a href="/delete_post/{{post.id}}" class="btn btn-danger">Smazat</a>
+    {% endif %}
     <br><br>
     <div class="collapse" id="comments-{{post.id}}">
         <div class="card">
@@ -33,6 +34,11 @@
                     <div>
 
                         <small class="text-muted">{{comment.date_created}}</small>
+                    </div>
+                    <div>
+                        {% if user.id == comment.author or user.id == post.author %}
+                        <a href="/delete_comment/{{comment.id}}">smazat</a> 
+                        {% endif %}
                     </div>
                 </div>
 
@@ -59,7 +65,7 @@
     </form>
 
 
-    {% endif %}
+    
 </div>
 {% endfor%}
 </center>

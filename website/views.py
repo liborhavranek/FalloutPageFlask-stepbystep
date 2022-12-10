@@ -124,7 +124,7 @@ def create_comment(post_id):
             flash('Příspěvek neexistuje', category='error')
     return redirect(url_for('views.home'))
 
-@views.route("/delete-comment/<comment_id>")
+@views.route("/delete_comment/<comment_id>")
 @login_required
 def delete_comment(comment_id):
     comment = Comment.query.filter_by(id=comment_id).first()
@@ -138,3 +138,4 @@ def delete_comment(comment_id):
         db.session.commit()
 
     return redirect(url_for('views.home'))
+
