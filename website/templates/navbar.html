@@ -36,6 +36,7 @@
             <ul class="dropdown-menu bg-dark">
              {% if user.is_authenticated %}
              <li><a class="dropdown-item nav-link" href="/logout">Odhlásit</a></li>
+             <li><a class="dropdown-item nav-link" href="/post_board">Příspěvky</a></li>
               {% else %}
             <li><a class="dropdown-item nav-link" href="/login">Přihlášení</a></li>
             <li><a class="dropdown-item nav-link" href="/sign_up">Registrace</a></li>
