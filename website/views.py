@@ -122,7 +122,23 @@ def create_comment(post_id):
             db.session.commit()
         else:
             flash('Příspěvek neexistuje', category='error')
-    return redirect(url_for('views.home'))
+    return redirect(url_for('views.post_board'))
+
+@views.route("/edit_comment/<comment_id>", methods=['GET', 'POST'])
+def edit_comment(comment_id):
+    comment = Comment.query.filter_by(id=comment_id).first()
+    if request.method == 'POST':
+        text = request.form.get("comentary_text")
+        print(text)
+        if not text:
+            flash('Nemůžete upravit prázdný komentář', category='error')
+            return redirect(url_for('views.post_board'))
+        else:
+            comment.text = text
+            db.session.add(comment)
+            db.session.commit()
+            return redirect(url_for('views.post_board'))
+
 
 @views.route("/delete_comment/<comment_id>")
 @login_required
@@ -130,12 +146,12 @@ def delete_comment(comment_id):
     comment = Comment.query.filter_by(id=comment_id).first()
 
     if not comment:
-        flash('Comment does not exist.', category='error')
+        flash('Comentář neexistuje.', category='error')
     elif current_user.id != comment.author and current_user.id != comment.post.author:
-        flash('You do not have permission to delete this comment.', category='error')
+        flash('Nemůžeš smazat tento příspěvek.', category='error')
     else:
         db.session.delete(comment)
         db.session.commit()
 
-    return redirect(url_for('views.home'))
+    return redirect(url_for('views.post_board'))
 

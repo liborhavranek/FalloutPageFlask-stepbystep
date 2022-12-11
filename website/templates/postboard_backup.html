@@ -39,16 +39,15 @@
 
                         <small class="text-muted">{{comment.date_created}}</small>
                         {% if user.id == comment.author or user.id == post.author %}
-                        <a class="" data-bs-toggle="collapse" href="#collapseEditCommentForm-{{comment.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="" data-bs-toggle="collapse" href="#collapseEditCommentForm" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Upravit
                           </a>
-                          <div class="collapse" id="collapseEditCommentForm-{{comment.id}}">
+                          <div class="collapse" id="collapseEditCommentForm">
                             <div class="card card-body">
-                                <form action="/edit_comment/{{comment.id}}" class="input-group mb-3" method="POST" id="comentary_text">
+                                <form action="/edit_comment/{{comment.id}}" class="input-group mb-3" method="POST" name="comentary_text">
 
                                     <input type="text" id="comentary_text" name="comentary_text" class="form-control" value="{{comment.text}}" placeholder="Uprav komentář">
-                                    <button type="submit" id="comentary_text" name="comentary_text" class="btn btn-primary">Upravit</button>
-                                </form>
+                                    <button type="submit" name="comentary_text" class="btn btn-primary">Upravit</button>
                             </div>
                           </div>
                         {% endif %}
@@ -81,7 +80,7 @@
     <form action="/create_comment/{{post.id}}" class="input-group mb-3" method="POST">
 
         <input type="text" id="text" name="text" class="form-control" placeholder="okomentuj prispevek">
-        <button type="submit" name="text" class="btn btn-primary">Komentář</button>
+        <button type="submit" class="btn btn-primary">Komentář</button>
     </form>
 
 
