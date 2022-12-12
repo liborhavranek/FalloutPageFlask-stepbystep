@@ -15,16 +15,24 @@
     <p>{{ post.text|safe }}</p> <br>
 
     {{ post.date_created }} <br>
-
+    <!-- likes start -->
     <span id="likes-count-{{post.id}}">{{post.likes|length}}</span>
     {% if user.id in post.likes|map(attribute="author")|list %}
     <span><i class="fa-solid fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
     {% else %}
     <i class="fa-regular fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
     {% endif %} 
+        <!-- likes stop -->
 
-    <!-- <i class="fa-regular fa-thumbs-down"></i>
-    <i class="fa-solid fa-thumbs-down"></i> -->
+        <!-- dislikes start -->
+        <span id="dislikes-count-{{post.id}}">{{post.dislikes|length}}</span>
+        {% if user.id in post.dislikes|map(attribute="author")|list %}
+        <span><i class="fa-solid fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
+        {% else %}
+        <i class="fa-regular fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
+        {% endif %} 
+        <!-- dislikes stop -->
+
     <hr>
     {% if user.id == post.author %}
     <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>

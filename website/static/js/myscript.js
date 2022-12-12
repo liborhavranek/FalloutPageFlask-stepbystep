@@ -15,3 +15,21 @@ function like(postId) {
       })
       .catch((e) => alert("Příspěvek se nepodařilo olikovat."));
   }
+
+  function dislike(postId) {
+    const dislikeCount = document.getElementById(`dislikes-count-${postId}`);
+    const dislikeButton = document.getElementById(`dislike-button-${postId}`);
+  
+    // fetch posle request
+    fetch(`/dislike_post/${postId}`, { method: "POST" })
+      .then((res) => res.json())
+      .then((data) => {
+        dislikeCount.innerHTML = data["dislikes"];
+        if (data["disliked"] === true) {
+          dislikeButton.className = "fa-solid fa-thumbs-down";
+        } else {
+          dislikeButton.className = "fa-regular fa-thumbs-down";
+        }
+      })
+      .catch((e) => alert("Příspěvek se nepodařilo olikovat."));
+  }

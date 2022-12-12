@@ -1,6 +1,6 @@
 # File for everything what is visible for everyone 
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
-from .models import User, Post, Comment, Like
+from .models import User, Post, Comment, Like, Dislike
 from flask_login import login_user, logout_user, login_required, current_user
 from . import db
 
@@ -8,7 +8,6 @@ views = Blueprint('views', __name__)
 
 @views.route("/")
 @views.route("/home")
-@login_required
 def home():
     return render_template('home.html', user=current_user)
 
@@ -164,13 +163,31 @@ def like(post_id):
     if not post:
         return jsonify({'error': 'Nmůžeš likovat příspěvek, který neexistuje'}, 400)
     elif like:
-        print('stop like')
+        # print('stop like')
         db.session.delete(like)
         db.session.commit()
     else:
         like = Like(author=current_user.id, post_id=post_id)
-        print('add like')
+        # print('add like')
         db.session.add(like)
         db.session.commit()
     return jsonify({"likes": len(post.likes), "liked": current_user.id in map(lambda x: x.author, post.likes)})
+
+@views.route(("/dislike_post/<post_id>"), methods=['POST'])
+@login_required
+def dislike(post_id):
+    post = Post.query.filter_by(id=post_id).first()
+    dislike = Dislike.query.filter_by(author=current_user.id, post_id=post_id).first()
+    if not post:
+        return jsonify({'error': 'Nmůžeš dislikovat příspěvek, který neexistuje'}, 400)
+    elif dislike:
+        print('stop dislike')
+        db.session.delete(dislike)
+        db.session.commit()
+    else:
+        dislike = Dislike(author=current_user.id, post_id=post_id)
+        print('add dislike')
+        db.session.add(dislike)
+        db.session.commit()
+    return jsonify({"dislikes": len(post.dislikes), "disliked": current_user.id in map(lambda y: y.author, post.dislikes)})
         
