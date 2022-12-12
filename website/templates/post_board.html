@@ -15,9 +15,16 @@
     <p>{{ post.text|safe }}</p> <br>
 
     {{ post.date_created }} <br>
-    {{post.Likes|length}}
-    <i class="fa-regular fa-thumbs-up"></i>
-    <i class="fa-solid fa-thumbs-up"></i>
+
+    {{post.likes|length}}
+    {% if user.id in post.likes|map(attribute="author")|list %}
+    <a href="/like_post/{{post.id}}"><i class="fa-solid fa-thumbs-up"></i></a>
+    {% else %}
+    <a href="/like_post/{{post.id}}"><i class="fa-regular fa-thumbs-up"></i></a>
+    {% endif %} 
+
+    <!-- <i class="fa-regular fa-thumbs-down"></i>
+    <i class="fa-solid fa-thumbs-down"></i> -->
     <hr>
     {% if user.id == post.author %}
     <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>
@@ -38,6 +45,7 @@
                     <div>
 
                         <small class="text-muted">{{comment.date_created}}</small>
+
                         {% if user.id == comment.author or user.id == post.author %}
                         <a class="" data-bs-toggle="collapse" href="#collapseEditCommentForm-{{comment.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Upravit
