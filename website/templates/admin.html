@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<center>
+
+<h1>Administrator</h1>
+
+<h2>Všichni uživatelé</h2>
+
+{% for user in users%}
+
+<div class="row">
+    <div class="col">{{user.id}}</div>
+    <div class="col">{{user.email}}</div>
+    <div class="col">{{user.username}}</div>
+    <div class="col">{{user.date_created}}</div>
+    <div class="col">{{user.posts|length}}</div>
+    <div class="col">{{user.comments|length}}</div>
+    <div class="col"><a href="/delete_user/{{user.id}}">smazat</a></div>
+</div>
+{% endfor %}
+
+<h2>Všechny příspěvky</h2>
+
+
+{% for post in posts%}
+
+<div class="row">
+    <div class="col">{{post.id}}</div>
+    <div class="col">{{post.date_created}}</div>
+    <div class="col">{{post.user.username}}</div>
+    <div class="col">{{post.title}}</div>
+    <div class="col"><a href="/delete_post/{{post.id}}">smazat</a></div>
+</div>
+{% endfor %}
+
+
+<h2>Všechny komentářě </h2>
+
+
+{% for comment in comments %}
+
+<div class="row">
+    <div class="col">{{comment.id}}</div>
+    <div class="col">{{comment.date_created}}</div>
+    <div class="col">{{comment.user.username}}</div>
+
+    <div class="col"><a href="/delete_comment/{{comment.id}}">smazat</a></div>
+</div>
+{% endfor %}
+
+</center>
+
+{% endblock %}

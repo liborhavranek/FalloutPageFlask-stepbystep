@@ -9,21 +9,25 @@
           <li class="nav-item px-4">
             <a class="nav-link" aria-current="page" href="#">Bambulky</a>
           </li>
-          <li class="nav-item px-4">
-            <a class="nav-link" href="#">Úkoly</a>
-          </li>
+
           <li class="nav-item px-4">
             <a class="nav-link" href="#">Mapy</a>
           </li>
+
           <li class="nav-item px-4">
-            <a class="nav-link" href="#">Postavy</a>
+            <a class="nav-link" href="#">Společníci</a>
           </li>
           <li class="nav-item px-4">
-              <a class="nav-link" href="#">Předměty</a>
-            </li>
+            <a class="nav-link" href="#">Sešity</a>
+          </li>
+
             <li class="nav-item px-4">
               <a class="nav-link" href="#">Trofeje</a>
             </li>
+            <li class="nav-item px-4">
+              <a class="nav-link" href="#">Příspěvky</a>
+            </li>
+
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,11 +43,16 @@
              <li><a class="dropdown-item nav-link" href="/post_board">Příspěvky</a></li>
              <li><a class="dropdown-item nav-link" href="/create_post">Napsat příspěvek</a></li>
              <li><a class="dropdown-item nav-link" href="/posts/{{current_user.username}}">Moje příspěveky</a></li>
+             <li><a class="dropdown-item nav-link" href="/delete_user/{{user.id}}">Smazat profil</a></li>
               {% else %}
             <li><a class="dropdown-item nav-link" href="/login">Přihlášení</a></li>
             <li><a class="dropdown-item nav-link" href="/sign_up">Registrace</a></li>
-            <li><hr class="dropdown-divider"></li>
             {% endif %}
+            {% if user.id == 1 %}
+            <li><a class="dropdown-item nav-link" href="/admin">Admin</a></li>
+            {% endif %}
+            <li><hr class="dropdown-divider"></li>
+            
             
           </ul>
         </li>

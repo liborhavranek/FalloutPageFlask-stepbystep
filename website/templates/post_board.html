@@ -67,10 +67,9 @@
                                 </form>
                             </div>
                           </div>
-                        {% endif %}
-                        {% if user.id == comment.author or user.id == post.author %}
                         <a href="/delete_comment/{{comment.id}}">smazat</a> 
                         {% endif %}
+
                     </div>
                     <div>
                        

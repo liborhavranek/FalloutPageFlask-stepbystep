@@ -65,7 +65,6 @@ def edit_post(id):
 
 
 @views.route("/post_board")
-@login_required
 def post_board():
     posts = Post.query.all()
     return render_template('post_board.html', user=current_user, posts=posts)
@@ -190,4 +189,11 @@ def dislike(post_id):
         db.session.add(dislike)
         db.session.commit()
     return jsonify({"dislikes": len(post.dislikes), "disliked": current_user.id in map(lambda y: y.author, post.dislikes)})
-        
+
+@views.route('/admin')
+@login_required
+def admin():
+    users = User.query.order_by(User.date_created)
+    posts = Post.query.order_by(Post.date_created)
+    comments= Comment.query.order_by(Comment.date_created)
+    return render_template('admin.html', user=current_user, users=users, posts=posts, comments=comments)

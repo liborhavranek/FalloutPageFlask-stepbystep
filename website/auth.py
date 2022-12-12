@@ -56,7 +56,7 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
-            flash('Profil byl úspěšně vytvořen.')
+            flash('Profil byl úspěšně vytvořen.', category='success')
             return redirect(url_for('views.home'))
         
     return render_template('signup.html', user=current_user)
@@ -70,4 +70,14 @@ def logout():
     return redirect(url_for('views.home'))
 
 
+@auth.route('/delete_user/<int:id>')
+def delete_user(id):
+    user= User.query.filter_by(id=id).first()
+    if not user:
+        flash('profil neexistuje', category='error')
+    else:
+        db.session.delete(user)
+        db.session.commit()
+        flash('Uzivatel byl smazan')
+    return redirect(url_for('views.home'))
 
