@@ -1,5 +1,5 @@
 # File for everything what is visible for everyone 
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from .models import User, Post, Comment, Like
 from flask_login import login_user, logout_user, login_required, current_user
 from . import db
@@ -156,13 +156,13 @@ def delete_comment(comment_id):
     return redirect(url_for('views.post_board'))
 
 
-@views.route(("/like_post/<post_id>"), methods=['GET'])
+@views.route(("/like_post/<post_id>"), methods=['POST'])
 @login_required
 def like(post_id):
     post = Post.query.filter_by(id=post_id).first()
     like = Like.query.filter_by(author=current_user.id, post_id=post_id).first()
     if not post:
-        flash("Nmůžeš likovat příspěvek, který neexistuje", category='error')
+        return jsonify({'error': 'Nmůžeš likovat příspěvek, který neexistuje'}, 400)
     elif like:
         print('stop like')
         db.session.delete(like)
@@ -172,5 +172,5 @@ def like(post_id):
         print('add like')
         db.session.add(like)
         db.session.commit()
-    return redirect(url_for('views.post_board'))
+    return jsonify({"likes": len(post.likes), "liked": current_user.id in map(lambda x: x.author, post.likes)})
         
