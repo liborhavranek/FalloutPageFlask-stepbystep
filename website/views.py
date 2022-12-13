@@ -287,3 +287,7 @@ def eneryweapon_bobblehead():
 @views.route('/trophy')
 def trophy():
     return render_template('trophy.html', user=current_user)
+
+@views.route('/bobbleheads-map')
+def bobbleheads_map():
+    return render_template('bobbleheads-map.html', user=current_user)

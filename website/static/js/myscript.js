@@ -33,3 +33,4 @@ function like(postId) {
       })
       .catch((e) => alert("Příspěvek se nepodařilo olikovat."));
   }
+
