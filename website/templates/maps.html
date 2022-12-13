@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<img class="img-fluid" src="{{url_for('static', filename='images/maps.jpg')}}" alt="">
+<section class="description">
+    <div class="war">
+        Mapy, bambulky, sešity
+    </div>
+
+
+<section class="maps-background"></section>
+
+
+<div class="container maps-container">
+
+    <div class="row">
+        <div class="col-3"> <img class="maps-image" src="{{url_for('static', filename='images/mapaorez.jpg')}}" alt=""></div>
+        <div class="col-3 special-text">Bambulky</div>
+        <div class="col-6 go-to-map"><a href="bobbleheads-map">Přejít na mapu >>></a></div>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

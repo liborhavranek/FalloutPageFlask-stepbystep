@@ -34,3 +34,8 @@ function like(postId) {
       .catch((e) => alert("Příspěvek se nepodařilo olikovat."));
   }
 
+
+
+
+  var button = document.getElementById('myButton');
+  button.innerHTML = 'Click me';

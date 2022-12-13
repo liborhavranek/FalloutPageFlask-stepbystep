@@ -154,7 +154,7 @@ def delete_comment(comment_id):
     return redirect(url_for('views.post_board'))
 
 
-@views.route(("/like_post/<post_id>"), methods=['POST'])
+@views.route("/like_post/<post_id>", methods=['POST'])
 @login_required
 def like(post_id):
     post = Post.query.filter_by(id=post_id).first()
@@ -172,7 +172,7 @@ def like(post_id):
         db.session.commit()
     return jsonify({"likes": len(post.likes), "liked": current_user.id in map(lambda x: x.author, post.likes)})
 
-@views.route(("/dislike_post/<post_id>"), methods=['POST'])
+@views.route("/dislike_post/<post_id>", methods=['POST'])
 @login_required
 def dislike(post_id):
     post = Post.query.filter_by(id=post_id).first()
@@ -190,6 +190,65 @@ def dislike(post_id):
         db.session.commit()
     return jsonify({"dislikes": len(post.dislikes), "disliked": current_user.id in map(lambda y: y.author, post.dislikes)})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @views.route('/admin')
 @login_required
 def admin():
@@ -197,6 +256,17 @@ def admin():
     posts = Post.query.order_by(Post.date_created)
     comments= Comment.query.order_by(Comment.date_created)
     return render_template('admin.html', user=current_user, users=users, posts=posts, comments=comments)
+
+
+
+
+
+
+
+
+
+
+
 
 @views.route('/bobbleheads')
 def bobbleheads():
@@ -291,3 +361,11 @@ def trophy():
 @views.route('/bobbleheads-map')
 def bobbleheads_map():
     return render_template('bobbleheads-map.html', user=current_user)
+
+@views.route('/testmap')
+def testmap():
+    return render_template('testmap.html', user=current_user)
+
+@views.route('/maps')
+def maps():
+    return render_template('maps.html', user=current_user)
