@@ -197,3 +197,7 @@ def admin():
     posts = Post.query.order_by(Post.date_created)
     comments= Comment.query.order_by(Comment.date_created)
     return render_template('admin.html', user=current_user, users=users, posts=posts, comments=comments)
+
+@views.route('/bobbleheads')
+def bobbleheads():
+    return render_template('bobbleheads.html', user=current_user)

@@ -1,0 +1,175 @@
+/* image section start */
+.image-container{
+    background-color: black;
+}
+
+.bobblehead-opacity{
+    opacity: 0.9;
+
+}
+/* image section end */
+
+
+/* bobblehead map section start */
+
+.bobbleheadmap{
+    background-color:  rgb(236,235,232);
+}
+
+
+.bobblehead-description{
+    margin-top:10%;
+    padding-bottom: 6%;
+}
+
+.bobble-game-description{
+    font-size: 1.7vw;
+    font-family: 'Oswald', sans-serif;
+    text-align: justify;
+}
+
+.bobbleheadimage{
+    width: 40%;
+    padding-top: 8%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-image{
+    padding-top: 14%;
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.go-to-map{
+    font-size: 5vw;
+    font-family: 'Oswald', bold;
+    text-align: center;
+    margin: auto;
+}
+
+.go-to-map :hover{
+    color: rgb(221,183,36);
+}
+
+.go-to-map a {
+    all: unset;    
+}
+/* bobblehead map section end */
+
+/* bobblehead center section start */
+
+.bobblehead-center{
+    background-color: black;
+    padding-bottom: 3%;
+    padding-top: 3%;
+}
+
+
+.side-bobble{
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-bobble{
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-bobble{
+    padding-top: 5%;
+    color: rgb(221,183,36);
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5vw;
+    text-align: center;
+}
+
+
+.bobble-popis-vnimani{
+    color: rgb(221,183,36);
+    font-family: 'Oswald', sans-serif;
+    font-size: 2vw;
+    text-align: center;  
+}
+
+.bobble-popis-rychlost{
+    color: rgb(221,183,36);
+    font-family: 'Oswald', sans-serif;
+    font-size: 2vw;
+    text-align: center;  
+}
+
+
+
+.bobble-popis-hbitost{
+    color: rgb(221,183,36);
+    font-family: 'Oswald', sans-serif;
+    font-size: 2vw;
+    text-align: center;
+}
+
+/* bobblehead center section end */
+
+
+/* bobblehead list section start */
+
+.bobblehead-list-container{
+    padding-top: 3%;
+    background-color:  rgb(236,235,232);
+    padding-right: 7%;
+}
+
+.bobblehead-image{
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+/* special description je ve style css */
+
+.bobble-name{
+    text-align: center;
+    font-size: 1.8vw;
+    font-family: 'Oswald', bold;
+}
+
+.bobble-name a {
+    all: unset;    
+}
+
+.bobble-name a:hover {
+    color: rgb(221,183,36);  
+} 
+
+.bobble-description{
+    text-align: center;
+    color: grey;
+    font-family: sans-serif;
+    font-size: 1.2vw;
+    margin-top: 1%;
+}
+
+.bobble-hr{
+    margin: auto;
+    width: 80%;
+}
+
+
+.bobblehead-list li{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5vw;
+    padding-left: 8%;
+    padding-bottom: 1%;
+}
+
+/* booblehead section end */

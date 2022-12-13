@@ -124,7 +124,7 @@ font-size: 2vw;
 }
 /* alert section end */
 
-/* post section end */
+/* post section start */
 .post-div p{
     display: -webkit-box;
     overflow: hidden;
@@ -133,3 +133,13 @@ font-size: 2vw;
 }
 
 /* post section end */
+
+/* paticka section start */
+.paticka{
+    margin-top: -1px !important;
+    margin-bottom: -1px !important;
+}
+
+/* paticka section end */
+
+

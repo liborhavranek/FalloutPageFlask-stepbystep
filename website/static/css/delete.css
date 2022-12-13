@@ -1,0 +1,319 @@
+
+
+
+
+
+
+/* pipboy section start */
+.pipboy{
+    background-color: black;
+}
+/* pipboy section end */
+
+.paticka{
+    margin-top: -1px !important;
+    margin-bottom: -1px !important;
+}
+
+
+
+
+/* trophy section start */
+.trophy-header{
+    background-color: rgb(150,150,150);
+    font-size: 3vw;
+    font-family: 'Oswald', bold;
+    text-align: center;
+    margin: auto;
+    color: rgb(221,183,36);
+}
+
+.trophy-head{
+    width: 10%;
+    padding-right: 6%;
+}
+
+.trophy-complete{
+    width: 40%;
+}
+
+.trophy-list{
+    padding-left: 15%;
+    width: 45%;
+}
+
+.trophy-name{
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: 'Oswald', bold;
+}
+
+.trophy-description{
+    text-align: center;
+    color: grey;
+}
+
+.trophy-container{
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.trophy-hr{
+    margin: auto;
+    width: 70%;
+}
+
+/* trophy section end */
+
+
+
+
+
+
+/* map section start */
+.map-row{
+    padding-top: 4%;
+}
+
+.hide{
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+
+.location{
+    color:grey
+}
+
+.unsearch {
+    color:red;
+}
+.perception-booblehead-description{
+    margin: -80px;
+    margin-left: 100px
+}
+
+.explosive-booblehead-description{
+    margin: -60px;
+    margin-left: 470px;
+}
+
+.repair-booblehead-description{
+    margin: 50px;
+    margin-left: 180px;
+}
+
+.luck-booblehead-description{
+    margin: 380px;
+    margin-left: 560px;
+}
+
+.agility-booblehead-description{
+    margin: 430px;
+    margin-left: 480px;
+}
+
+.endurance-booblehead-description{
+    margin: 450px;
+    margin-left: 420px;
+}
+
+.unarmed-booblehead-description{
+    margin: 390px;
+    margin-left: 390px;
+}
+
+.smallguns-booblehead-description{
+    margin: 400px;
+    margin-left: 170px;
+}
+
+.bigguns-booblehead-description{
+    margin: 470px;
+    margin-left: 70px;
+}
+
+.medicine-booblehead-description{
+    margin: 230px;
+    margin-left: 140px;
+}
+
+.intelligence-booblehead-description{
+    margin: 230px;
+    margin-left: 240px;
+}
+
+.meele-booblehead-description{
+    margin: 240px;
+    margin-left: 250px;
+}
+
+.lock-booblehead-description{
+    margin: 140px;
+    margin-left: 350px;
+}
+
+.barter-booblehead-description{
+    margin: -30px;
+    margin-left: 550px;
+}
+
+.sneak-booblehead-description{
+    margin: -60px;
+    margin-left: 500px;
+}
+
+.science-booblehead-description{
+    margin: -40px;
+    margin-left: 380px;
+}
+
+.speech-booblehead-description{
+    margin: 200px;
+    margin-left: 350px;
+}
+
+.strength-booblehead-description{
+    margin: 170px;
+    margin-left: 400px;
+}
+
+.charisma-booblehead-description{
+    margin: -120px;
+    margin-left: 400px;
+}
+
+.energyweapon-booblehead-description{
+    margin: 180px;
+    margin-left: 100px;
+
+}
+
+#perception-button{
+    margin-right: 5%;
+}
+
+#explosive-button{
+    margin-right: 5%;
+}
+
+#repair-button{
+    margin-right: 5%;
+}
+
+#luck-button{
+    margin-right: 5%;
+}
+
+#agility-button{
+    margin-right: 5%;
+}
+
+#endurance-button{
+    margin-right: 5%;
+}
+
+#unarmed-button{
+    margin-right: 5%;
+}
+
+#smallguns-button{
+    margin-right: 5%;
+}
+
+#bigguns-button{
+    margin-right: 5%;
+}
+
+#medicine-button{
+    margin-right: 5%;
+}
+
+#intelligence-button{
+    margin-right: 5%;
+}
+
+#meele-button{
+    margin-right: 5%;
+}
+
+#lock-button{
+    margin-right: 5%;
+}
+
+#barter-button{
+    margin-right: 5%;
+}
+
+#sneak-button{
+    margin-right: 5%;
+}
+
+#science-button{
+    margin-right: 5%;
+}
+
+#speech-button{
+    margin-right: 5%;
+}
+
+#strength-button{
+    margin-right: 5%;
+}
+
+#charisma-button{
+    margin-right: 5%;
+}
+
+#energyweapon-button{
+    margin-right: 5%;
+}
+
+/* map section end */
+
+
+/* booblehead profile pages start */
+
+
+
+.booble-profile{
+    margin-top: -12%;
+    margin-left: 10%;
+    background-image: url(./images/grey\ background.jpg);
+    border-radius: 100%;
+    opacity: 0.9;
+}
+
+.booble-profile-name{
+    background: none;
+    text-align: center;
+    font-size: 6vw;
+    font-family: 'Rubik Distressed', cursive;
+    color: rgb(221,183,36);
+    margin-top: -42%;
+}
+
+.booble-profile-container{
+background-color: rgb(236,235,232);
+padding-bottom: 6%;
+}
+
+.booble-profile-desctiption{
+padding-left: 7%;
+padding-top: 4%;
+font-size: 1.9vw;
+}
+
+.booble-popis{
+    text-align: justify;
+}
+
+.video{
+padding-top: 10%;
+padding-left: 5%;
+}
+/* booblehead profile pages start */
