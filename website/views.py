@@ -283,3 +283,7 @@ def charisma_bobblehead():
 @views.route('/energyweapon-bobblehead')
 def eneryweapon_bobblehead():
     return render_template('bobbleheads/energyweapon-bobblehead.html', user=current_user)
+
+@views.route('/trophy')
+def trophy():
+    return render_template('trophy.html', user=current_user)

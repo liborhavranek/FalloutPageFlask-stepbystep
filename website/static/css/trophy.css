@@ -1,0 +1,46 @@
+/* trophy section start */
+.trophy-header{
+    background-color: rgb(150,150,150);
+    font-size: 3vw;
+    font-family: 'Oswald', bold;
+    text-align: center;
+    margin: auto;
+    color: rgb(221,183,36);
+}
+
+.trophy-head{
+    width: 10%;
+    padding-right: 6%;
+}
+
+.trophy-complete{
+    width: 40%;
+}
+
+.trophy-list{
+    padding-left: 15%;
+    width: 45%;
+}
+
+.trophy-name{
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: 'Oswald', bold;
+}
+
+.trophy-description{
+    text-align: center;
+    color: grey;
+}
+
+.trophy-container{
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.trophy-hr{
+    margin: auto;
+    width: 70%;
+}
+
+/* trophy section end */
