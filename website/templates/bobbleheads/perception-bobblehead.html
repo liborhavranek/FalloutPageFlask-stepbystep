@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  .booble-profile {
+    margin-top: -12%;
+    margin-left: 10%;
+    border-radius: 100%;
+    opacity: 0.9;
+    background-image: url({{url_for(
+        "static",
+        filename= "images/greybackground.jpg"
+      )}});
+  }
+</style>
+
+<div class="background-walper">
+  <img
+    class="img-fluid booblehead-walper"
+    src="{{url_for('static', filename='images/boobbleheaduvod.jpg')}}"
+    alt=""
+  />
+</div>
+
+<div class="container-fluid booble-profile-container">
+  <div class="row">
+    <div class="col-3 booble-profile">
+      <img
+        class="img-fluid booble-image"
+        src="{{url_for('static', filename='images/bobbleheads/Perception_bobblehead.png')}}"
+        alt=""
+      />
+    </div>
+
+    <div class="col-9 booble-profile-name">Bambulka vnímání</div>
+  </div>
+
+  <div class="row booble-profile-desctiption">
+    <div class="col-5">
+      <div class="text-center py-2"><h3>Lokace:</h3></div>
+      <div class="booble-location text-center py-2 text-muted">
+        Museum svobody / Museum of Freedom
+      </div>
+      <div class="text-center py-2"><h3>Efekt:</h3></div>
+      <div class="booble-effect text-center py-2 text-muted">
+        Nalezení této bambulky permanentně zvýší tvoje vnímání o 1
+      </div>
+      <div class="text-center py-2"><h3>Popis:</h3></div>
+      <div class="booble-popis py-2 text-muted">
+        Tuto bambulku pravděpodobně najdeš jako první bambulku ve hře. Vejdi do
+        Muzea svobody a probojuj se skrz nájezdníky. V místnosti kde se nachází
+        Preston Garvey najdeš na stole Bambulku Vnímání. Přesnou cestu jak se
+        dostaneš k bambulce najdeš ve videu.
+      </div>
+    </div>
+
+    <div class="col-7 video">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/cXX_xiHrFm8"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

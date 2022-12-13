@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  .booble-profile {
+    margin-top: -12%;
+    margin-left: 10%;
+    border-radius: 100%;
+    opacity: 0.9;
+    background-image: url({{url_for(
+        "static",
+        filename= "images/greybackground.jpg"
+      )}});
+  }
+</style>
+
+<div class="background-walper"><img class="img-fluid booblehead-walper" src="{{url_for('static', filename='images/boobbleheaduvod.jpg')}}" alt=""></div>
+
+<div class="container-fluid booble-profile-container">
+
+<div class="row">
+<div class="col-3 booble-profile"><img class="img-fluid booble-image" src="{{url_for('static', filename='images/bobbleheads/strength_bobblehead.png')}}" alt=""></div>
+
+<div class="col-9 booble-profile-name">Bambulka síly</div>
+
+</div>
+
+
+<div class="row booble-profile-desctiption">
+<div class="col-5">
+  <div class="text-center py-2"><h3>Lokace:</h3></div>
+  <div class="booble-location text-center py-2 text-muted">(přeložit) / Mass Fusion Building</div> 
+  <div class="text-center py-2"><h3>Efekt:</h3></div>
+<div class="booble-effect text-center py-2 text-muted">Nalezení této bambulky permanentně zvýší tvoji sílu o 1</div>
+<div class="text-center py-2"><h3>Popis:</h3></div>
+<div class="booble-popis py-2 text-muted">Vejděte do budovy a vydejte se po schodech co nejvýše nahoru. Nad halou je vztyčená socha a její hlava má vrcholek úplně v nejvyším patře a tam se potřebuješ dostat. Až vylezeš na horu najdi gauč a ten přeskočíš na okraj zábradlí a dostaneš se na hlavu sochy. Tam už jednoduše sebereč tuto bambulku.  
+</div>
+</div>
+
+
+<div class="col-7 video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QYHmJ6bbzIU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+
+
+</div>
+</div>
+
+</div>
+
+
+{% endblock content %}

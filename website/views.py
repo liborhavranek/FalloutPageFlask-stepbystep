@@ -201,3 +201,85 @@ def admin():
 @views.route('/bobbleheads')
 def bobbleheads():
     return render_template('bobbleheads.html', user=current_user)
+
+
+@views.route('/perception-bobblehead')
+def perception_bobblehead():
+    return render_template('bobbleheads/perception-bobblehead.html', user=current_user)
+
+
+@views.route('/explosive-bobblehead')
+def explosive_bobblehead():
+    return render_template('bobbleheads/explosive-bobblehead.html', user=current_user)
+
+@views.route('/repair-bobblehead')
+def repair_bobblehead():
+    return render_template('bobbleheads/repair-bobblehead.html', user=current_user)
+
+@views.route('/luck-bobblehead')
+def luck_bobblehead():
+    return render_template('bobbleheads/luck-bobblehead.html', user=current_user)
+
+@views.route('/agility-bobblehead')
+def agility_bobblehead():
+    return render_template('bobbleheads/agility-bobblehead.html', user=current_user)
+
+@views.route('/endurance-bobblehead')
+def endurance_bobblehead():
+    return render_template('bobbleheads/endurance-bobblehead.html', user=current_user)
+
+@views.route('/unarmed-bobblehead')
+def unarmed_bobblehead():
+    return render_template('bobbleheads/unarmed-bobblehead.html', user=current_user)
+
+@views.route('/smallguns-bobblehead')
+def smallguns_bobblehead():
+    return render_template('bobbleheads/smallguns-bobblehead.html', user=current_user)
+
+@views.route('/bigguns-bobblehead')
+def bigguns_bobblehead():
+    return render_template('bobbleheads/bigguns-bobblehead.html', user=current_user)
+
+@views.route('/medicine-bobblehead')
+def medicine_bobblehead():
+    return render_template('bobbleheads/medicine-bobblehead.html', user=current_user)
+
+@views.route('/intelligence-bobblehead')
+def intelligence_bobblehead():
+    return render_template('bobbleheads/intelligence-bobblehead.html', user=current_user)
+
+@views.route('/meele-bobblehead')
+def meele_bobblehead():
+    return render_template('bobbleheads/meele-bobblehead.html', user=current_user)
+
+@views.route('/lockpick-bobblehead')
+def lockpick_bobblehead():
+    return render_template('bobbleheads/lockpick-bobblehead.html', user=current_user)
+
+@views.route('/barter-bobblehead')
+def barter_bobblehead():
+    return render_template('bobbleheads/barter-bobblehead.html', user=current_user)
+
+@views.route('/sneak-bobblehead')
+def sneak_bobblehead():
+    return render_template('bobbleheads/sneak-bobblehead.html', user=current_user)
+
+@views.route('/science-bobblehead')
+def science_bobblehead():
+    return render_template('bobbleheads/science-bobblehead.html', user=current_user)
+
+@views.route('/speech-bobblehead')
+def speech_bobblehead():
+    return render_template('bobbleheads/speech-bobblehead.html', user=current_user)
+
+@views.route('/strength-bobblehead')
+def strength_bobblehead():
+    return render_template('bobbleheads/strength-bobblehead.html', user=current_user)
+
+@views.route('/charisma-bobblehead')
+def charisma_bobblehead():
+    return render_template('bobbleheads/charisma-bobblehead.html', user=current_user)
+
+@views.route('/energyweapon-bobblehead')
+def eneryweapon_bobblehead():
+    return render_template('bobbleheads/energyweapon-bobblehead.html', user=current_user)
