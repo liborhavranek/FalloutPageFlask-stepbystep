@@ -28,7 +28,7 @@ class Post(db.Model):
     dislikes = db.relationship('Dislike', backref='post', passive_deletes=True)
 
 
-    
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(200), nullable=False)
@@ -51,3 +51,8 @@ class Dislike(db.Model):
     
     
 
+# class UserButton(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
+#     html_id = db.Column(db.String)
+#     active = db.Column(db.Boolean)
