@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{{ ckeditor.load() }}
 <br> <br>
 <center>
 <h1>Edit your post a post ...</h1>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     <div class="mb-3 align-center">
       <label for="title" class="form-label"></label>
-      <input type="text" class="form-control w-50" id="title" name="title" aria-describedby="emailHelp" placeholder="Titulek Příspěvku">
+      <input type="text" class="form-control w-50" id="title" name="title" aria-describedby="emailHelp" value="{{post.title}}" placeholder="Titulek Příspěvku">
       <br>
-<textarea name="text" id="text" cols="10" rows="10" class="form-control w-50">{{post.text}}</textarea>
+      <div class="w-50 text-start">
+        <label for="post_pic" class="form-label">Fotka k příspěvku</label>
+        <input class="form-control" type="file" id="post_pic" name="post_pic" value="{{post.post_pic}}">
+        <br>
+      </div>
+      <div class="w-50">
+        <textarea name="text" id="text" cols="10" rows="10" class="form-control w-50" placeholder="Napiš příspěvek">{{post.text}}</textarea>
+        </div>
 <br>
 <button type="submit" class="btn btn-lg btn-primary">Odeslat</button>
 </div>
   </form>
-
+  {{ ckeditor.config(name='text') }}
 </center>
 {% endblock %}

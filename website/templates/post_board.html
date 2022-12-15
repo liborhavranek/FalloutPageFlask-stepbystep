@@ -16,6 +16,13 @@
     <p>{{ post.text|safe }}</p> <br>
     </div>
     {{ post.date_created }} <br>
+    {{ post.post_pic }} <br>
+    {% if post.post_pic%}
+    <img src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}" class="card-img-top w-25" alt="...">
+    
+    {% else %}
+    <img src="{{url_for('static', filename='images/raw.gif')}}" class="card-img-top w-25" alt="...">
+    {% endif %}
     <!-- likes start -->
     <span id="likes-count-{{post.id}}">{{post.likes|length}}</span>
     {% if user.id in post.likes|map(attribute="author")|list %}

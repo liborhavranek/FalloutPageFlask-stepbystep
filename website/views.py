@@ -11,18 +11,21 @@ import os
 
 
 views = Blueprint('views', __name__)
-path = 'website/static/images/uploads'
-# upload photo staff
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @views.route("/")
 @views.route("/home")
 def home():
     return render_template('home.html', user=current_user)
+
+# -----------------------------------post section start --------------------------------
+
+path = 'website/static/images/uploads'
+# upload photo staff
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @views.route("/create_post", methods=['GET', 'POST'])
@@ -32,8 +35,6 @@ def create_post():
         text = request.form.get("text")
         title = request.form.get("title")
         post_pic = request.files.get('post_pic')
-        print(post_pic)
-        print(title)
         if not title:
             flash('Titulek musí mít alespoň 5 znaků', category='error')
         elif len(title) < 5:
@@ -53,7 +54,7 @@ def create_post():
                     saver = request.files.get('post_pic')
                     # change to string
                     str_picname=str(pic_name)
-                    
+
                     saver.save(os.path.join(current_app.config['UPLOAD_FOLDER'], str_picname))
                     # convert to string 
                     post_pic_str = str_picname
@@ -79,6 +80,7 @@ def edit_post(id):
     if request.method == 'POST':
         text = request.form.get("text")
         title = request.form.get("title")
+        post_pic = request.files.get('post_pic')
         if not title:
             flash('Titulek musí mít alespoň 5 znaků', category='error')
         elif len(title) < 5:
@@ -89,12 +91,32 @@ def edit_post(id):
             elif len(text) < 50:
                 flash('Příspěvek musí mít alespoň 5O znaků', category='error')
             else:
-                post.text = text
-                post.title = title
-                db.session.add(post)
-                db.session.commit()
-                flash('Příspěvek byl aktualizovan', category='success')
-                return redirect(url_for('views.post_board'))
+                if post_pic:
+                    #grab the image
+                    pic_filename = secure_filename(post_pic.filename)
+                    #set UUID
+                    pic_name = str(uuid.uuid1()) + "_" + pic_filename
+                    
+                    saver = request.files.get('post_pic')
+                    # change to string
+                    str_picname=str(pic_name)
+
+                    saver.save(os.path.join(current_app.config['UPLOAD_FOLDER'], str_picname))
+                    # convert to string 
+                    post_pic_str = str_picname
+                    post.text = text
+                    post.title = title
+                    post.post_pic = post_pic_str
+                    db.session.add(post)
+                    db.session.commit()
+                    flash('Příspěvek byl aktualizovan', category='success')
+                else:
+                    post_pic = None
+                    post.text = text
+                    post.title = title
+                    db.session.add(post)
+                    db.session.commit()
+                    return redirect(url_for('views.post_board'))
     return render_template('edit_post.html', user=current_user, id=post.id, post=post )
     
 
@@ -141,8 +163,14 @@ def post(id):
         flash('Příspěvek neexistuje', category='error')
     else:
         return render_template('post.html', post=post, id=id, user=current_user)
-    
-    
+
+# --------------------------------------post section end ------------------------------
+
+
+
+
+
+
 @views.route('/create_comment/<post_id>', methods=['POST'])
 @login_required
 def create_comment(post_id):
