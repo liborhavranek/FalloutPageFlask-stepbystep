@@ -12,8 +12,8 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     # pridani do databazevsech postu a komentaru ktere uzivatel napise
-    posts = db.relationship('Post', backref='user', passive_deletes=True)
-    comments = db.relationship('Comment', backref='user', passive_deletes=True)
+    posts = db.relationship('Post', backref='user', cascade="all, delete")
+    comments = db.relationship('Comment', backref='user', cascade="all, delete")
     likes = db.relationship('Like', backref='user', passive_deletes=True)
     dislikes = db.relationship('Dislike', backref='user', passive_deletes=True)
 

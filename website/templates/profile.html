@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .booble-profile{
+        margin-top: -12%;
+        margin-left: 10%;
+        border-radius: 100%;
+        opacity: 0.9;
+        background-image: url({{url_for('static', filename='images/greybackground.jpg')}})
+    }
+
+</style>
+
+<div class="background-walper"><img class="img-fluid booblehead-walper" src="{{url_for('static', filename='images/boobbleheaduvod.jpg')}}" alt=""></div>
+
+<div class="container-fluid booble-profile-container">
+
+<div class="row">
+<div class="col-3 booble-profile"><img class="img-fluid booble-image" src="{{url_for('static', filename='images/bobbleheads/agility_bobblehead.png')}}" alt=""></div>
+
+<div class="col-9 booble-profile-name">Bambulka hbitosti</div>
+
+</div>
+
+
+<div class="row booble-profile-desctiption">
+<div class="col-5">
+  <div class="text-center py-2"><h3>Lokace:</h3></div>
+  <div class="booble-location text-center py-2 text-muted"> (prelozit) Wreck of the FMS North Star / Wreck of the FMS North Star </div> 
+  <div class="text-center py-2"><h3>Efekt:</h3></div>
+<div class="booble-effect text-center py-2 text-muted">Nalezení této bambulky permanentně zvýší tvoji hbitost o 1</div>
+<div class="text-center py-2"><h3>Popis:</h3></div>
+<div class="booble-popis py-2 text-muted">Až dorazíte k vraku lodi, tak vejděte na palubu lodi. Projděte celou loď až na konec a dávejte pozor na nájezdníky kteří se na lodi nachází. Až narazíte na velitele nájezdníku se jménem Rags, tak v domku na lodi vystupte na okraj lodě a tam se nachází bambulka. </div>
+</div>
+
+
+<div class="col-7 video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VYWnyaf1YEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+{% endblock content %}
