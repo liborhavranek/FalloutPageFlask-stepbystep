@@ -345,7 +345,16 @@ def admin():
 
 
 
-
+@views.route('profil/<username>')
+@login_required
+def profil(username):
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        flash('Tento profil neexistuje', category='error')
+        return redirect(url_for('views.home'))
+    posts = user.posts
+    comments = user.comments
+    return render_template('profil.html', user=current_user, posts=posts, username=username, comments=comments)
 
 
 

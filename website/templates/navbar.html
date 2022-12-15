@@ -40,6 +40,7 @@
             <ul class="dropdown-menu bg-dark">
              {% if user.is_authenticated %}
              <li><a class="dropdown-item nav-link" href="/logout">Odhlásit</a></li>
+             <li><a class="dropdown-item nav-link" href="/profil/{{current_user.username}}">Profil</a></li>
              <li><a class="dropdown-item nav-link" href="/post_board">Příspěvky</a></li>
              <li><a class="dropdown-item nav-link" href="/create_post">Napsat příspěvek</a></li>
              <li><a class="dropdown-item nav-link" href="/posts/{{current_user.username}}">Moje příspěveky</a></li>

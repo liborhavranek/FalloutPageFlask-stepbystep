@@ -1,0 +1,135 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  .booble-profile {
+    margin-top: -12%;
+    margin-left: 10%;
+    border-radius: 100%;
+    opacity: 0.9;
+    background-image: url({{url_for(
+        "static",
+        filename= "images/greybackground.jpg"
+      )}});
+  }
+</style>
+
+<div class="background-walper">
+  <img
+    class="img-fluid booblehead-walper"
+    src="{{url_for('static', filename='images/boobbleheaduvod.jpg')}}"
+    alt=""
+  />
+</div>
+
+<div class="container-fluid booble-profile-container">
+  <div class="row">
+    <div class="col-3 booble-profile">
+      <img
+        class="img-fluid booble-image"
+        src="{{url_for('static', filename='images/bobbleheads/Perception_bobblehead.png')}}"
+        alt=""
+      />
+    </div>
+
+    <div class="col-9 booble-profile-name">{{current_user.username}}</div>
+  </div>
+<div class="row">
+  <div class="col-3 text-center">
+
+      <h2>{{current_user.username}}</h2><br>
+      <p>počet příspěvků: {{current_user.posts|length}}</p>
+      <p>počet komentářů: {{current_user.comments|length}}</p>
+      <p>počet liků {{current_user.likes|length}}</p>
+      <p>počet disliků {{current_user.dislikes|length}}</p>
+
+      <p>zobrazit přispevky </p>
+      <p>zobrazit komentáře </p> 
+      <a class="btn btn-warning" data-bs-toggle="collapse" href="#collapseOne">
+        Zobrazit říspěvky
+      </a>
+      
+          <a class="collapsed btn btn-warning" data-bs-toggle="collapse" href="#collapseTwo">
+        Zobrazit komentáře
+      </a>
+   
+
+  </div>
+  <div class="col-9" id="accordion">
+ 
+
+
+    <div class="collapse show" id="collapseOne" data-bs-parent="#accordion">
+      
+    <center>
+      {% if current_user.posts|length > 0 %}
+      <h1>Příspěvky uživatele {{current_user.username}}</h1>
+    
+      {% for post in posts %}
+    
+      <div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div">
+        {{ post.id }} <br />
+        <h5>{{ post.user.username }} <br /></h5>
+        <hr />
+        <p>{{ post.title}}</p>
+        <br />
+        <p>{{ post.text|safe }}</p>
+        <br />
+    
+        {{ post.date_created }} <br />
+        <hr />
+        {% if user.id == post.author %}
+        <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>
+        <a href="/delete_post/{{post.id}}" class="btn btn-danger">Smazat</a>
+        {% endif %}
+      </div>
+      {% endfor%}
+    </center>
+    {% else %}
+      <h1>uživatel {{current_user.username}} nemá žádné příspěvky</h1>
+    {% endif %}
+
+    </div>
+
+
+ 
+    <div class="collapse" id="collapseTwo" data-bs-parent="#accordion">
+      
+    <center>
+      {% if current_user.comments|length > 0 %}
+      <h1>Komentáře uživatele {{current_user.username}}</h1>
+    
+      {% for comment in comments %}
+    
+      <div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div">
+        {{ comment.id }} <br />
+        <h5>{{ comment.user.username }} <br /></h5>
+        <hr />
+        <p>{{ comment.title}}</p>
+        <br />
+        <p>{{ comment.text|safe }}</p>
+        <br />
+    
+        {{ comment.date_created }} <br />
+        <hr />
+        {% if user.id == comment.author %}
+        <a href="/edit_comment/{{comment.id}}" class="btn btn-secondary">Upravit</a>
+        <a href="/delete_comment/{{comment.id}}" class="btn btn-danger">Smazat</a>
+        {% endif %}
+      </div>
+      {% endfor%}
+    </center>
+    {% else %}
+      <h1>uživatel {{current_user.username}} nemá žádné příspěvky</h1>
+    {% endif %}
+
+    </div>
+
+
+
+
+
+  </div>
+</div>
+ 
+</div>
+
+{% endblock content %}
