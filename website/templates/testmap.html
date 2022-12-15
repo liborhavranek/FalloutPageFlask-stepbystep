@@ -1,16 +1,11 @@
-<html>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <li class="explosive-li"><button type="submit" class="btn btn-danger btn-sm" name="explosive-button" id="explosive-button" value="false">Nenalezeno</button>Bambulka exploze</li>
     
-<button id="1" type="submit">jednicka</button>
-<button id="2" type="submit">dvojka </button>
+    <li class="repair-li"><button type="button" class="btn btn-danger btn-sm" name="repair-button" id="repair-button">Nenalezeno</button>Bambulka oprav</li>
 
+    <li class="luck-li"><button type="button" class="btn btn-danger btn-sm" id="luck-button">Nenalezeno</button>Bambulka štěstí</li>
 
-
-
-
-
-</body>
-
-
-
-</html>
+    {% endblock %}

@@ -2,11 +2,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container-fluid d-flex justify-content-center">
-    <div class="w-25">
+<div class="container-fluid d-flex justify-content-center log-div">
+    
+  
+  <div class="col-4 w-25 my-auto mx-auto"> 
+    <img class="img-fluid valut-tec-image" src="{{url_for('static', filename='images/valutboyleft.png')}}" alt="">
+  </div>
+  <div class=" col-4 w-25">
 <center>
-<h1>Přihlásit se </h1>
-<p>přihlášení tady ....</p>
+<img class="img-fluid valut-tec-image" src="{{url_for('static', filename='images/valut-tec.png')}}" alt="">
+
+<h6 class="registrace">Registrace obyvatele valutu</h6>
+ 
+
+
 <form method="POST">
     <div class="mb-3">
       <label for="email" class="form-label">Email:</label>
@@ -24,10 +33,14 @@
         <label for="Password2" class="form-label">Heslo:</label>
         <input type="password" name="password2" class="form-control" id="Password2" placeholder="Potvrdit Heslo">
       </div>
-    <button type="submit" class="btn btn-primary">Registrovat</button>
+    <button type="submit" class="btn btn-warning">Registrovat</button>
   </form>
 
 </center>
+</div>
+
+<div class="col-4 w-25 my-auto mx-auto">
+  <img class="img-fluid valut-tec-image" src="{{url_for('static', filename='images/valutboyright.png')}}" alt="">
 </div>
 </div>
 

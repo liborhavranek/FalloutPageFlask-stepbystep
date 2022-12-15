@@ -37,5 +37,5 @@ function like(postId) {
 
 
 
-  var button = document.getElementById('myButton');
-  button.innerHTML = 'Click me';
+  // var button = document.getElementById('myButton');
+  // button.innerHTML = 'Click me';

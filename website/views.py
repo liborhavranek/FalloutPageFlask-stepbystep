@@ -79,7 +79,7 @@ def delete_post(id):
         db.session.delete(post)
         db.session.commit()
         flash('Příspěvek byl smazán', category='success')
-        return render_template('post_board.html', user=current_user, post=post )
+    return render_template('post_board.html', user=current_user, post=post )
 
 
 @views.route('/posts/<username>')
@@ -112,6 +112,8 @@ def create_comment(post_id):
     text = request.form.get("text")
     if not text:
         flash('Nemůžete odeslat prázdný komentář', category='error')
+    elif len(text) > 500:
+        flash('komentář může mít maximálně 500 zaků', category='error')
     else:
         post = Post.query.filter_by(id=post_id)
         if post:
@@ -195,7 +197,25 @@ def dislike(post_id):
 
 
 
+@views.route('/testmap')
+def testmap():
+    # button = UserButton.query.filter_by(id=id).first()
+    # print(button)
+    # print(button.id)
+    # button_value = request.form.get('explosive-button')
+    # print(button_value)
+    # if button_value:
+    #     button_value.active = True
+    #     db.session.add(button_value)
+    #     db.session.commit()
+    # else:
+    #     button_value.active = True
+    #     db.session.add(button_value)
+    #     db.session.commit()
 
+    
+
+    return render_template('testmap.html', user=current_user)
 
 
 
@@ -362,9 +382,15 @@ def trophy():
 def bobbleheads_map():
     return render_template('bobbleheads-map.html', user=current_user)
 
-@views.route('/testmap')
-def testmap():
-    return render_template('testmap.html', user=current_user)
+
+
+
+
+
+
+
+
+
 
 @views.route('/maps')
 def maps():
