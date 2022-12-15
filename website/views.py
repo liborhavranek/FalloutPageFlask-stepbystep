@@ -1,10 +1,23 @@
 # File for everything what is visible for everyone 
-from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
+from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify, current_app
 from .models import User, Post, Comment, Like, Dislike
 from flask_login import login_user, logout_user, login_required, current_user
-from . import db
+from werkzeug.utils import secure_filename
+from . import db 
+import uuid as uuid 
+import os
+
+
+
 
 views = Blueprint('views', __name__)
+path = 'website/static/images/uploads'
+# upload photo staff
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @views.route("/")
 @views.route("/home")
@@ -18,6 +31,9 @@ def create_post():
     if request.method == 'POST':
         text = request.form.get("text")
         title = request.form.get("title")
+        post_pic = request.files.get('post_pic')
+        print(post_pic)
+        print(title)
         if not title:
             flash('Titulek musí mít alespoň 5 znaků', category='error')
         elif len(title) < 5:
@@ -28,12 +44,33 @@ def create_post():
             elif len(text) < 50:
                 flash('Příspěvek musí mít alespoň 5O znaků', category='error')
             else:
-                post = Post(text=text, title=title, author=current_user.id)
-                db.session.add(post)
-                db.session.commit()
-                flash('Příspěvek byl přidán', category='success')
-                return redirect(url_for('views.post_board'))
+                if post_pic:
+                    #grab the image
+                    pic_filename = secure_filename(post_pic.filename)
+                    #set UUID
+                    pic_name = str(uuid.uuid1()) + "_" + pic_filename
+                    
+                    saver = request.files.get('post_pic')
+                    # change to string
+                    str_picname=str(pic_name)
+                    
+                    saver.save(os.path.join(current_app.config['UPLOAD_FOLDER'], str_picname))
+                    # convert to string 
+                    post_pic_str = str_picname
+                    post = Post(text=text, title=title, post_pic=post_pic_str, author=current_user.id)
+                    db.session.add(post)
+                    db.session.commit()
+                    flash('Příspěvek byl přidán', category='success')
+                    return redirect(url_for('views.post_board'))
+                else:
+                    post_pic = None
+                    post = Post(text=text, title=title, post_pic=post_pic, author=current_user.id)
+                    db.session.add(post)
+                    db.session.commit()
+                    flash('Příspěvek byl přidán', category='success')
+                    return redirect(url_for('views.post_board'))
     return render_template('create_post.html', user=current_user)
+
 
 @views.route("/edit_post/<int:id>", methods=['GET', 'POST'])
 @login_required

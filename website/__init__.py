@@ -2,15 +2,27 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
+from flask_ckeditor import CKEditor
+
+
 
 db = SQLAlchemy()
 DB_NAME="database.db"
+
+
+
 
 def create_app():
     app = Flask(__name__) 
     app.config['SECRET_KEY']= 'key'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
+    
+    
+    UPLOAD_FOLDER = 'website/static/images/uploads'
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+    
+
     
     from .views import views
     from .auth import auth
@@ -26,6 +38,9 @@ def create_app():
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
+    
+    ckeditor = CKEditor(app)
+    
     
     @login_manager.user_loader
     def load_user(id):

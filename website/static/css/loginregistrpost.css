@@ -23,8 +23,17 @@
 
 /* post_board start  */
 
+.post-div p{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 
-
-
-
+.post-p-div{
+display: -webkit-box;
+overflow: hidden;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+}
 /* post_board end  */
