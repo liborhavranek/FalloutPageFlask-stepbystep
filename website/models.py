@@ -1,6 +1,8 @@
 from . import db 
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from sqlalchemy import create_engine
+
 
 
 class User(db.Model, UserMixin):
@@ -26,6 +28,7 @@ class Post(db.Model):
     comments = db.relationship('Comment', backref='post', passive_deletes=True)
     likes = db.relationship('Like', backref='post', passive_deletes=True)
     dislikes = db.relationship('Dislike', backref='post', passive_deletes=True)
+
 
 
 
