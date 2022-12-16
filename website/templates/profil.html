@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <style>
   .booble-profile {
     margin-top: -12%;
@@ -22,31 +23,44 @@
 
 <div class="container-fluid booble-profile-container">
   <div class="row">
+    
     <div class="col-3 booble-profile">
+      
       <img
         class="img-fluid booble-image"
         src="{{url_for('static', filename='images/bobbleheads/Perception_bobblehead.png')}}"
         alt=""
       />
     </div>
-
-    <div class="col-9 booble-profile-name">{{current_user.username}}</div>
+  
+    <div class="col-9 booble-profile-name">{{user.username}}</div>
   </div>
 <div class="row">
   <div class="col-3 text-center">
 
-      <h2>{{current_user.username}}</h2><br>
-      <p>počet příspěvků: {{current_user.posts|length}}</p>
-      <p>počet komentářů: {{current_user.comments|length}}</p>
-      <p>počet liků {{current_user.likes|length}}</p>
-      <p>počet disliků {{current_user.dislikes|length}}</p>
+    <div>
+      <a class="" href="/edit-user-photo/{{current_user.id}}"><p>změnit profilovku</p></a>
+    </div>
 
-      <p>zobrazit přispevky </p>
-      <p>zobrazit komentáře </p> 
+
+      <h2>{{user.username}}</h2><br>
+      {{user.user_pic}}
+      {% if user.user_pic%}
+      <img src="{{url_for('static', filename='images/uploads/' + user.user_pic)}}" class="card-img-top w-25" alt="...">
+      
+      {% else %}
+      <img src="{{url_for('static', filename='images/raw.gif')}}" class="card-img-top w-25" alt="...">
+      {% endif %}
+      {{current_user.username}}
+      <p>počet příspěvků: {{user.posts|length}}</p>
+      <p>počet komentářů: {{user.comments|length}}</p>
+      <p>počet liků {{user.likes|length}}</p>
+      <p>počet disliků {{user.dislikes|length}}</p>
+
       <a class="btn btn-warning" data-bs-toggle="collapse" href="#collapseOne">
         Zobrazit říspěvky
       </a>
-      
+      <br><br>
           <a class="collapsed btn btn-warning" data-bs-toggle="collapse" href="#collapseTwo">
         Zobrazit komentáře
       </a>
@@ -54,14 +68,14 @@
 
   </div>
   <div class="col-9" id="accordion">
- 
-
-
+ <center>
+    <h1>Zeď uživatele {{user.username}}</h1>
+  </center>
     <div class="collapse show" id="collapseOne" data-bs-parent="#accordion">
       
     <center>
-      {% if current_user.posts|length > 0 %}
-      <h1>Příspěvky uživatele {{current_user.username}}</h1>
+      {% if user.posts|length > 0 %}
+      <h1>Příspěvky uživatele {{user.username}}</h1>
     
       {% for post in posts %}
     
@@ -84,7 +98,7 @@
       {% endfor%}
     </center>
     {% else %}
-      <h1>uživatel {{current_user.username}} nemá žádné příspěvky</h1>
+      <h1>uživatel {{user.username}} nemá žádné příspěvky</h1>
     {% endif %}
 
     </div>
@@ -94,8 +108,8 @@
     <div class="collapse" id="collapseTwo" data-bs-parent="#accordion">
       
     <center>
-      {% if current_user.comments|length > 0 %}
-      <h1>Komentáře uživatele {{current_user.username}}</h1>
+      {% if user.comments|length > 0 %}
+      <h1>Komentáře uživatele {{user.username}}</h1>
     
       {% for comment in comments %}
     
@@ -118,7 +132,7 @@
       {% endfor%}
     </center>
     {% else %}
-      <h1>uživatel {{current_user.username}} nemá žádné příspěvky</h1>
+      <h1>uživatel {{user.username}} nemá žádné komentáře</h1>
     {% endif %}
 
     </div>

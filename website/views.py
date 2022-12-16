@@ -262,76 +262,6 @@ def dislike(post_id):
 
 
 
-@views.route('/testmap')
-def testmap():
-    # button = UserButton.query.filter_by(id=id).first()
-    # print(button)
-    # print(button.id)
-    # button_value = request.form.get('explosive-button')
-    # print(button_value)
-    # if button_value:
-    #     button_value.active = True
-    #     db.session.add(button_value)
-    #     db.session.commit()
-    # else:
-    #     button_value.active = True
-    #     db.session.add(button_value)
-    #     db.session.commit()
-
-    
-
-    return render_template('testmap.html', user=current_user)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @views.route('/admin')
@@ -345,7 +275,7 @@ def admin():
 
 
 
-@views.route('profil/<username>')
+@views.route('/profil/<username>')
 @login_required
 def profil(username):
     user = User.query.filter_by(username=username).first()
@@ -354,11 +284,36 @@ def profil(username):
         return redirect(url_for('views.home'))
     posts = user.posts
     comments = user.comments
-    return render_template('profil.html', user=current_user, posts=posts, username=username, comments=comments)
+    return render_template('profil.html', user=user, posts=posts, username=username, comments=comments)
 
 
 
+@views.route('/edit-user-photo/<int:id>', methods=['GET','POST'])
+@login_required
+def edit_user_photo(id):
+    user = User.query.filter_by(id=id).first()
+    if request.method == 'POST':
+        user_pic = request.files.get('user_pic')
+        #grab the image
+        pic_filename = secure_filename(user_pic.filename)
+        #set UUID
+        pic_name = str(uuid.uuid1()) + "_" + pic_filename
+                        
+        saver = request.files.get('user_pic')
+         # change to string
+        str_picname=str(pic_name)
 
+        saver.save(os.path.join(current_app.config['UPLOAD_FOLDER'], str_picname))
+        # convert to string 
+        post_pic_str = str_picname
+
+        user.user_pic = post_pic_str
+        db.session.add(user)
+        db.session.commit()
+        flash('fotka byla aktualizovana', category='success')
+        return redirect(url_for('views.profil', username=current_user.username))
+    return render_template('edit-user-photo.html', id=user.id, user=current_user)   
+    
 
 
 

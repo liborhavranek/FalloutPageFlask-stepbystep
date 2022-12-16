@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
+    user_pic = db.Column(db.String(150), nullable=True)
     # pridani do databazevsech postu a komentaru ktere uzivatel napise
     posts = db.relationship('Post', backref='user', cascade="all, delete")
     comments = db.relationship('Comment', backref='user', cascade="all, delete")
