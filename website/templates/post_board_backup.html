@@ -3,21 +3,48 @@
 {% block content %}
 
 <center>
+<div class="container-fluid post-board-container">
+
+
 <h1>Příspěvky</h1>
 <br>
 {% for post in posts %}
 
-<div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div">
+
+<div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div ">
     {{ post.id }} <br>
 <h5>{{ post.user.username }} <br></h5>
 <hr>
     <h2><a href="/post/{{post.id}}">{{ post.title}}</a></h2> <br>
+    <div class="post-p-div">
     <p>{{ post.text|safe }}</p> <br>
-
+    </div>
     {{ post.date_created }} <br>
-    {{post.Likes|length}}
-    <i class="fa-regular fa-thumbs-up"></i>
-    <i class="fa-solid fa-thumbs-up"></i>
+    {{ post.post_pic }} <br>
+    {% if post.post_pic%}
+    <img src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}" class="card-img-top w-25" alt="...">
+    
+    {% else %}
+    <img src="{{url_for('static', filename='images/raw.gif')}}" class="card-img-top w-25" alt="...">
+    {% endif %}
+    <!-- likes start -->
+    <span id="likes-count-{{post.id}}">{{post.likes|length}}</span>
+    {% if user.id in post.likes|map(attribute="author")|list %}
+    <span><i class="fa-solid fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
+    {% else %}
+    <i class="fa-regular fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
+    {% endif %} 
+        <!-- likes stop -->
+
+        <!-- dislikes start -->
+        <span id="dislikes-count-{{post.id}}">{{post.dislikes|length}}</span>
+        {% if user.id in post.dislikes|map(attribute="author")|list %}
+        <span><i class="fa-solid fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
+        {% else %}
+        <i class="fa-regular fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
+        {% endif %} 
+        <!-- dislikes stop -->
+
     <hr>
     {% if user.id == post.author %}
     <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>
@@ -38,22 +65,23 @@
                     <div>
 
                         <small class="text-muted">{{comment.date_created}}</small>
+
                         {% if user.id == comment.author or user.id == post.author %}
-                        <a class="" data-bs-toggle="collapse" href="#collapseEditCommentForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="" data-bs-toggle="collapse" href="#collapseEditCommentForm-{{comment.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Upravit
                           </a>
-                          <div class="collapse" id="collapseEditCommentForm">
+                          <div class="collapse" id="collapseEditCommentForm-{{comment.id}}">
                             <div class="card card-body">
-                                <form action="/edit_comment/{{comment.id}}" class="input-group mb-3" method="POST" name="comentary_text">
+                                <form action="/edit_comment/{{comment.id}}" class="input-group mb-3" method="POST" id="comentary_text">
 
                                     <input type="text" id="comentary_text" name="comentary_text" class="form-control" value="{{comment.text}}" placeholder="Uprav komentář">
-                                    <button type="submit" name="comentary_text" class="btn btn-primary">Upravit</button>
+                                    <button type="submit" id="comentary_text" name="comentary_text" class="btn btn-primary">Upravit</button>
+                                </form>
                             </div>
                           </div>
-                        {% endif %}
-                        {% if user.id == comment.author or user.id == post.author %}
                         <a href="/delete_comment/{{comment.id}}">smazat</a> 
                         {% endif %}
+
                     </div>
                     <div>
                        
@@ -79,8 +107,13 @@
 
     <form action="/create_comment/{{post.id}}" class="input-group mb-3" method="POST">
 
-        <input type="text" id="text" name="text" class="form-control" placeholder="okomentuj prispevek">
-        <button type="submit" class="btn btn-primary">Komentář</button>
+        <div class="input-group mb-3">
+        <textarea class="form-control" id="text" name="text" rows="3" placeholder="okomentuj prispevek"></textarea>
+        <br>
+        </div>
+        <div class="input-group">
+        <button type="submit" name="text" class="btn btn-primary">Komentář</button>
+        </div>
     </form>
 
 
@@ -88,5 +121,5 @@
 </div>
 {% endfor%}
 </center>
-
+</div>
 {% endblock %}

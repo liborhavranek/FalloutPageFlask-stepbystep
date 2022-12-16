@@ -18,7 +18,7 @@
 
 /* login registr end  */
 .post-board-container{
-    background-color: rgb(33,106,201);
+    background-color: rgb(236,235,232);
 }
 
 /* post_board start  */
@@ -36,4 +36,121 @@ overflow: hidden;
 -webkit-line-clamp: 3;
 -webkit-box-orient: vertical;
 }
+
+.post-titles{
+    font-size: 3.5vw;
+    color: rgb(221,183,36);
+    font-family: 'Rubik Distressed', cursive;
+    text-align: center;
+    padding-bottom: 3%;
+    
+}
+
+.user-text-logo{
+    width: 60%;
+}
+
+.users-text{
+    font-size: 2.2vw;
+    font-family: 'Cuprum', sans-serif;
+}
+
+.user-text{
+    font-size: 1.8vw;
+    font-family: 'Lucida Sans', sans-serif;
+
+}
+
+.user-text-1{
+    font-size: 1.5vw;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+.email-text{
+    font-size: 1.1vw;
+    margin-top: -8% !important;
+}
+
+.border-user{
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+
+.post-board{
+    border: 2px solid;
+    border-radius: 20px;
+}
+
+.user-a{
+    all: unset;
+    text-align: center;
+    font-size: 1.8vw;
+    font-family: 'Lucida Sans', sans-serif;
+    
+}
+
+
+.user-a:hover {
+    color: rgb(221,183,36);  
+} 
+
+
+.post-user-image{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+
+
+
+.title-of-post{
+    all: unset;
+    font-family: 'Cuprum', sans-serif;
+}
+.title-of-post:hover {
+    color: rgb(221,183,36);  
+} 
+
+
+.post-text{
+display: -webkit-box;
+overflow: hidden;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+font-size: 1.4vw;
+font-family: 'Lucida Sans', sans-serif;
+}
+
+.card-col{
+    background-color: #f7f6f5
+}
+
+
+.comments-div{
+
+    background-color: #d1d7e0;
+    border-radius: 20px;
+}
+
+.comment-a{
+    all: unset;
+}
+
+.comment-date{
+    margin-top: -3%;
+}
+
+.colapse-form{
+    background-color: #f7f6f5;
+    border: 0cm;
+    resize: vertical;
+}
+
+
+/* .edit-comment-form{
+    border-radius: 50px;
+} */
 /* post_board end  */

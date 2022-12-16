@@ -35,7 +35,18 @@ function like(postId) {
   }
 
 
+  // Odesílání edit comment pomocí entru 
+  function submitFormOnEnter(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.forms[0].submit();
+      return false;
+    }
+    return true;
+  }
 
 
-  // var button = document.getElementById('myButton');
-  // button.innerHTML = 'Click me';
+
+
+
+

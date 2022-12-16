@@ -126,7 +126,8 @@ def edit_post(id):
 @views.route("/post_board")
 def post_board():
     posts = Post.query.all()
-    return render_template('post_board.html', user=current_user, posts=posts)
+    users = User.query.all()
+    return render_template('post_board.html', user=current_user, posts=posts, users=users)
 
 @views.route('/delete_post/<int:id>')
 @login_required

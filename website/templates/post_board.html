@@ -1,121 +1,265 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <center>
-<h1>Příspěvky</h1>
-<br>
-{% for post in posts %}
+  <div class="container-fluid post-board-container">
+    <div class="row">
+      <div class="col-3 pt-4 pb-4">
+        <h4 class="post-titles">Uživatelé</h4>
 
-<div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div">
-    {{ post.id }} <br>
-<h5>{{ post.user.username }} <br></h5>
-<hr>
-    <h2><a href="/post/{{post.id}}">{{ post.title}}</a></h2> <br>
-    <div class="post-p-div">
-    <p>{{ post.text|safe }}</p> <br>
-    </div>
-    {{ post.date_created }} <br>
-    {{ post.post_pic }} <br>
-    {% if post.post_pic%}
-    <img src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}" class="card-img-top w-25" alt="...">
-    
-    {% else %}
-    <img src="{{url_for('static', filename='images/raw.gif')}}" class="card-img-top w-25" alt="...">
-    {% endif %}
-    <!-- likes start -->
-    <span id="likes-count-{{post.id}}">{{post.likes|length}}</span>
-    {% if user.id in post.likes|map(attribute="author")|list %}
-    <span><i class="fa-solid fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
-    {% else %}
-    <i class="fa-regular fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
-    {% endif %} 
-        <!-- likes stop -->
+        {% if current_user.is_authenticated %}
+        <p class="users-text">přihlášený uživatel:</p>
+        <div class="border-user">
+          {% if user.user_pic%}
+          <img
+            src="{{url_for('static', filename='images/uploads/' + user.user_pic)}}"
+            class="card-img-top post-user-image"
+            alt="..."
+          />
 
-        <!-- dislikes start -->
-        <span id="dislikes-count-{{post.id}}">{{post.dislikes|length}}</span>
-        {% if user.id in post.dislikes|map(attribute="author")|list %}
-        <span><i class="fa-solid fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
+          {% else %}
+          <img
+            src="{{url_for('static', filename='images/raw.gif')}}"
+            class="card-img-top post-user-image"
+            alt="..."
+          />
+          {% endif %}
+          <p class="user-text text-right">{{current_user.username}}</p>
+          <p class="email-text text-right">{{current_user.email}}</p>
+          <br />
+          <img
+            src="{{url_for('static', filename='images/valut-tec.png')}}"
+            class="image-fluid user-text-logo"
+            alt="..."
+          />
+        </div>
         {% else %}
-        <i class="fa-regular fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
-        {% endif %} 
-        <!-- dislikes stop -->
+        <div class="border-user">
+          <p class="users-text">Nejsi přihlášen !!!</p>
+          <a class="user-a" href="/login">Přihlásit</a> <br />
+          <a class="user-a" href="/sign_up">Zaregistrovat</a>
+        </div>
+        {% endif %}
 
-    <hr>
-    {% if user.id == post.author %}
-    <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>
-    <a href="/delete_post/{{post.id}}" class="btn btn-danger">Smazat</a>
-    {% endif %}
-    <br><br>
-    <div class="collapse" id="comments-{{post.id}}">
-        <div class="card">
-            <div class="card-body" id="comments-expanded-{{post.id}}">
+        <p class="users-text">Ostatní uživatelé:</p>
 
-                {% for comment in post.comments %}
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                    <div>
-                    <a href="/posts/{{comment.user.username}}">{{comment.user.username}}</a>
-                    {{comment.text}}
-                </div>
-                    <div>
+        <div class="border-user">
+          {% for user in users %}
 
-                        <small class="text-muted">{{comment.date_created}}</small>
+          <a class="user-a" href="/profil/{{user.username}}"
+            >{{user.username}}</a
+          ><br />
 
-                        {% if user.id == comment.author or user.id == post.author %}
-                        <a class="" data-bs-toggle="collapse" href="#collapseEditCommentForm-{{comment.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            Upravit
-                          </a>
-                          <div class="collapse" id="collapseEditCommentForm-{{comment.id}}">
-                            <div class="card card-body">
-                                <form action="/edit_comment/{{comment.id}}" class="input-group mb-3" method="POST" id="comentary_text">
+          {% endfor %}
+        </div>
+      </div>
 
-                                    <input type="text" id="comentary_text" name="comentary_text" class="form-control" value="{{comment.text}}" placeholder="Uprav komentář">
-                                    <button type="submit" id="comentary_text" name="comentary_text" class="btn btn-primary">Upravit</button>
-                                </form>
-                            </div>
-                          </div>
-                        <a href="/delete_comment/{{comment.id}}">smazat</a> 
-                        {% endif %}
+      <div class="col-9 pt-4 pb-4">
+        <h4 class="post-titles">Příspěvky</h4>
+        <br />
 
-                    </div>
-                    <div>
-                       
-                    </div>
-                </div>
-                </div>
-                <br>
-                
-                {% endfor %}
+        {% for post in posts %}
+
+        <p class="user-text-1">{{ post.user.username }}</p>
+        <div class="card mb-3 w-75 shadow-lg post-board">
+          <div class="card-header">
+            <h3 class="card-title text-center">
+              <a href="/post/{{post.id}}" class="title-of-post"
+                >{{post.title}}</a
+              >
+            </h3>
+          </div>
+
+          <div class="row g-0">
+            <div class="col-md-4">
+              {% if post.post_pic%}
+              <img
+                src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}"
+                class="img-fluid rounded-start w-75"
+                alt="..."
+              />
+
+              {% else %}
+              <img
+                src="{{url_for('static', filename='images/raw.gif')}}"
+                class="img-fluid rounded-start w-75"
+                alt="..."
+              />
+              {% endif %}
             </div>
+            <div class="col-md-8 card-col">
+              <div class="card-body">
+                <p class="card-text post-text">{{ post.text}}</p>
+
+                <div class="row">
+                  <div class="col-6">
+                    <p class="card-text">
+                      <small class="text-start"
+                        ><a href="/post/{{post.id}}">
+                          Přejít na příspěvek ></a
+                        ></small
+                      >
+                    </p>
+                  </div>
+
+                  <div class="col-6 text-end">
+                    {% if user.id == post.author %}
+                    <small class="muted">
+                      <a href="/edit_post/{{post.id}}" class=""
+                        >Upravit</a
+                      ></small
+                    >
+                    <small>
+                      <a href="/delete_post/{{post.id}}" class=""
+                        >Smazat</a
+                      ></small
+                    >
+                    {% endif %}
+                  </div>
+                  <div class="row">
+                    <div class="col text-end"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body card-col">
+              <div class="row">
+                <div class="col-6 text-start">
+                  <!-- likes start -->
+                  <!-- <span id="likes-count-{{post.id}}">{{post.likes|length}}</span>
+                 {% if user.id in post.likes|map(attribute="author")|list %}
+                 <span><i class="fa-solid fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
+                 {% else %}
+                 <i class="fa-regular fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
+                 {% endif %}  -->
+                  <!-- likes stop -->
+
+                  <!-- dislikes start -->
+                  <!-- <span id="dislikes-count-{{post.id}}">{{post.dislikes|length}}</span>
+                     {% if user.id in post.dislikes|map(attribute="author")|list %}
+                     <span><i class="fa-solid fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
+                     {% else %}
+                     <i class="fa-regular fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
+                     {% endif %}  -->
+                  <!-- dislikes stop -->
+                </div>
+
+                <div class="col-6 text-end">
+                  <p>
+                    <a
+                      class="comment-a"
+                      data-bs-toggle="collapse"
+                      href="#comments-{{post.id}}"
+                      role="button"
+                      >{{post.comments|length}}
+                      <i class="fa-regular fa-comment"></i
+                    ></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <div class="collapse" id="comments-{{post.id}}">
+                <div class="container-fluid">
+                  {% for comment in post.comments %}
+
+                  <div class="row pb-3">
+                    <div class="col-1">
+                      {% if comment.user.user_pic%}
+                      <img
+                        src="{{url_for('static', filename='images/uploads/' + comment.user.user_pic)}}"
+                        class="card-img-top post-user-image"
+                        alt="..."
+                      />
+
+                      {% else %}
+                      <img
+                        src="{{url_for('static', filename='images/raw.gif')}}"
+                        class="card-img-top post-user-image"
+                        alt="..."
+                      />
+                      {% endif %}
+                    </div>
+                    <!-- <div class="col-1"></div> -->
+
+                    <div class="col-11 text-start comments-div">
+                      {{comment.text}}
+                    </div>
+                  </div>
+
+                  <p class="text-end text-muted comment-date">
+                    <small>{{comment.date_created}}</small>
+                    {% if user.id == comment.author or user.id == post.author %}
+                    <a class="comment-a" href="/delete_comment/{{comment.id}}"
+                      >smazat</a
+                    >
+                    {% endif %} {% if user.id == comment.author %}
+                    <a
+                      class="comment-a"
+                      data-bs-toggle="collapse"
+                      href="#CommentsEdit-{{comment.id}}"
+                      role="button"
+                      >upravit</a
+                    >
+                  </p>
+                  <div
+                    class="collapse colapse-form"
+                    id="CommentsEdit-{{comment.id}}"
+                  >
+                    <div class="card card-body colapse-form">
+                      <form
+                        onkeypress="return submitFormOnEnter(event)"
+                        action="/edit_comment/{{comment.id}}"
+                        class="input-group mb-3 rounded-pill"
+                        method="POST"
+                        id="comentary_text"
+                      >
+                        <textarea
+                          type="text"
+                          id="comentary_text"
+                          name="comentary_text"
+                          class="edit-comment-form form-control rounded-pill"
+                          placeholder="Uprav komentář"
+                        >
+{{comment.text}}</textarea
+                        >
+                      </form>
+                    </div>
+                  </div>
+                  {% endif %} {% endfor %}
+                </div>
+
+                <form
+                  action="/create_comment/{{post.id}}"
+                  class="input-group mb-3"
+                  method="POST"
+                >
+                  <div class="input-group mb-3">
+                    <textarea
+                      class="form-control"
+                      id="text"
+                      name="text"
+                      rows="3"
+                      placeholder="Okomentuj prispevek"
+                    ></textarea>
+                    <br />
+                  </div>
+                  <div class="input-group">
+                    <button type="submit" name="text" class="btn btn-primary">
+                      Komentář
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {% endfor %}
+      </div>
     </div>
-    <br>
-<p class="card-text">
-{%if post.comments|length > 0 %}
-    <a data-bs-toggle="collapse" href="#comments-{{post.id}}" role="button">
-    <small class="text-muted">Přečíst {{post.comments|length}}</small> komentáře</a>
-{% else %}
-    <small class="text-muted">Napiš první komentář</small>
-{% endif %}
+  </div>
 
-</p>
-
-    <form action="/create_comment/{{post.id}}" class="input-group mb-3" method="POST">
-
-        <div class="input-group mb-3">
-        <textarea class="form-control" id="text" name="text" rows="3" placeholder="okomentuj prispevek"></textarea>
-        <br>
-        </div>
-        <div class="input-group">
-        <button type="submit" name="text" class="btn btn-primary">Komentář</button>
-        </div>
-    </form>
-
-
-    
-</div>
-{% endfor%}
+  {% endblock %}
 </center>
-
-{% endblock %}
