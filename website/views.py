@@ -129,6 +129,9 @@ def post_board():
     users = User.query.all()
     return render_template('post_board.html', user=current_user, posts=posts, users=users)
 
+
+
+
 @views.route('/delete_post/<int:id>')
 @login_required
 def delete_post(id):

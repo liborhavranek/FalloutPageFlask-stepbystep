@@ -8,7 +8,7 @@
 
         {% if current_user.is_authenticated %}
         <p class="users-text">přihlášený uživatel:</p>
-        <div class="border-user">
+        <div class="border-user shadow-lg">
           {% if user.user_pic%}
           <img
             src="{{url_for('static', filename='images/uploads/' + user.user_pic)}}"
@@ -18,7 +18,7 @@
 
           {% else %}
           <img
-            src="{{url_for('static', filename='images/raw.gif')}}"
+            src="{{url_for('static', filename='images/post-head.jpg')}}"
             class="card-img-top post-user-image"
             alt="..."
           />
@@ -33,7 +33,7 @@
           />
         </div>
         {% else %}
-        <div class="border-user">
+        <div class="border-user shadow">
           <p class="users-text">Nejsi přihlášen !!!</p>
           <a class="user-a" href="/login">Přihlásit</a> <br />
           <a class="user-a" href="/sign_up">Zaregistrovat</a>
@@ -61,39 +61,48 @@
 
         <p class="user-text-1">{{ post.user.username }}</p>
         <div class="card mb-3 w-75 shadow-lg post-board">
-          <div class="card-header">
+          <!-- <div class="card-header">
             <h3 class="card-title text-center">
               <a href="/post/{{post.id}}" class="title-of-post"
                 >{{post.title}}</a
               >
             </h3>
-          </div>
+          </div> -->
 
           <div class="row g-0">
-            <div class="col-md-4">
+            <div class="col-md-4 post-image">
               {% if post.post_pic%}
               <img
                 src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}"
-                class="img-fluid rounded-start w-75"
+                class="img-fluid post-img rounded-start w-75"
                 alt="..."
               />
 
               {% else %}
               <img
-                src="{{url_for('static', filename='images/raw.gif')}}"
-                class="img-fluid rounded-start w-75"
+                src="{{url_for('static', filename='images/post-head.jpg')}}"
+                class="img-fluid rounded-start w-75 post-img"
                 alt="..."
               />
               {% endif %}
             </div>
             <div class="col-md-8 card-col">
               <div class="card-body">
-                <p class="card-text post-text">{{ post.text}}</p>
+                <div class="post-title">
+                    {{post.title}}
+                </div>
+                <div class="post-date">
+                    <small>{{post.date_created}}</small>
+                </div>
+                <div>
+                    <p class="card-text post-text">{{ post.text}}</p>
+                </div>
+                
 
                 <div class="row">
-                  <div class="col-6">
+                  <div class="col-6 go-to-post">
                     <p class="card-text">
-                      <small class="text-start"
+                      <small class="text-start "
                         ><a href="/post/{{post.id}}">
                           Přejít na příspěvek ></a
                         ></small
@@ -124,27 +133,27 @@
 
             <div class="card-body card-col">
               <div class="row">
-                <div class="col-6 text-start">
+                <div class="col-11 text-end">
                   <!-- likes start -->
-                  <!-- <span id="likes-count-{{post.id}}">{{post.likes|length}}</span>
+                  <span id="likes-count-{{post.id}}">{{post.likes|length}}</span>
                  {% if user.id in post.likes|map(attribute="author")|list %}
                  <span><i class="fa-solid fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
                  {% else %}
                  <i class="fa-regular fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
-                 {% endif %}  -->
+                 {% endif %} 
                   <!-- likes stop -->
 
                   <!-- dislikes start -->
-                  <!-- <span id="dislikes-count-{{post.id}}">{{post.dislikes|length}}</span>
+                  <span id="dislikes-count-{{post.id}}">{{post.dislikes|length}}</span>
                      {% if user.id in post.dislikes|map(attribute="author")|list %}
                      <span><i class="fa-solid fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
                      {% else %}
                      <i class="fa-regular fa-thumbs-down" id="dislike-button-{{post.id}}" onclick="dislike({{post.id}})"></i>
-                     {% endif %}  -->
+                     {% endif %} 
                   <!-- dislikes stop -->
                 </div>
 
-                <div class="col-6 text-end">
+                <div class="col-1 text-end">
                   <p>
                     <a
                       class="comment-a"
@@ -158,10 +167,12 @@
                 </div>
               </div>
             </div>
-
+        
             <div class="card-footer">
               <div class="collapse" id="comments-{{post.id}}">
+                {% if current_user.is_authenticated %}
                 <div class="container-fluid">
+
                   {% for comment in post.comments %}
 
                   <div class="row pb-3">
@@ -181,7 +192,7 @@
                       />
                       {% endif %}
                     </div>
-                    <!-- <div class="col-1"></div> -->
+                    
 
                     <div class="col-11 text-start comments-div">
                       {{comment.text}}
@@ -251,9 +262,17 @@
                     </button>
                   </div>
                 </form>
+                {% else %}
+                <div class="collapse" id="comments-{{post.id}}">
+                  <p>Pro zobrazení komentářů se musíš přihlásit</p>
+                </div>
+                {% endif %}
               </div>
+             
             </div>
+
           </div>
+
         </div>
 
         {% endfor %}

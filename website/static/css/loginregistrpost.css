@@ -18,7 +18,9 @@
 
 /* login registr end  */
 .post-board-container{
-    background-color: rgb(236,235,232);
+    /* background-color: rgb(236,235,232); */
+    background-image: url('../images/backgrountcomment1.jpg');
+
 }
 
 /* post_board start  */
@@ -38,8 +40,8 @@ overflow: hidden;
 }
 
 .post-titles{
-    font-size: 3.5vw;
-    color: rgb(221,183,36);
+    font-size: 3.8vw;
+    color: #f9c700;
     font-family: 'Rubik Distressed', cursive;
     text-align: center;
     padding-bottom: 3%;
@@ -62,7 +64,7 @@ overflow: hidden;
 }
 
 .user-text-1{
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-family: 'Lucida Sans', sans-serif;
 }
 
@@ -81,6 +83,8 @@ overflow: hidden;
 .post-board{
     border: 2px solid;
     border-radius: 20px;
+    border-color: grey;
+    background-color: #e8eaf0;
 }
 
 .user-a{
@@ -121,17 +125,19 @@ overflow: hidden;
 -webkit-line-clamp: 4;
 -webkit-box-orient: vertical;
 font-size: 1.4vw;
-font-family: 'Lucida Sans', sans-serif;
+
+transform: translateX(-16%);
+
 }
 
 .card-col{
-    background-color: #f7f6f5
+    background-color: #e8eaf0;
 }
 
 
 .comments-div{
 
-    background-color: #d1d7e0;
+    background-color: whitesmoke;
     border-radius: 20px;
 }
 
@@ -149,6 +155,31 @@ font-family: 'Lucida Sans', sans-serif;
     resize: vertical;
 }
 
+.post-img{
+    width: 200px;
+    height: 200px;
+}
+
+.post-image{
+    transform: translateX(-20%) translateY(-20%);
+}
+
+.post-title{
+    font-size: 2.3vw;
+    font-family: 'Archivo Black', sans-serif;
+    text-align: left;
+    transform: translateX(-16%);
+}
+
+.go-to-post{
+    transform: translateX(-32%);
+}
+
+.post-date{
+    text-align: left;
+    transform: translateX(-16%);
+    
+}
 
 /* .edit-comment-form{
     border-radius: 50px;
