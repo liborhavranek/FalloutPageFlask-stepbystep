@@ -32,4 +32,50 @@ font-size: 1.9vw;
 padding-top: 10%;
 padding-left: 5%;
 }
+
+.profile-img{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    transform: translateX(50%) translateY(-50%);
+    margin-bottom: -50%;
+}
+
+.profile-name{
+    background: none;
+    text-align: left;
+    font-size: 6vw;
+    font-family: 'Rubik Distressed', cursive;
+    color: rgb(221,183,36);
+    margin-top: -28%;
+    margin-left: -20%;
+}
+
+
+.profile-email{
+    font-size: 1.1vw;
+}
+
+.number-post{
+    font-size: 2vw;
+}
+
+
+.colapse-form-profile{
+    background-color: rgb(236,235,232);
+    border: 0cm;
+    resize: vertical;
+}
+
+.comments-div-profile{
+
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+.post-container-post{
+    background-color: white;
+    border-radius: 20px;
+}
 /* booblehead profile pages start */

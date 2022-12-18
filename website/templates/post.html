@@ -2,11 +2,35 @@
 {% block content %}
 
 <center>
+    <div class="container-fluid post-container">
+        <div class="text-center pb-4">
+            <h1>Příspěvek uživatele {{username}}</h1>
+        </div>
 
-<h1>Příspěvek uživatele {{username}}</h1>
 
 
-<div class="shadow-lg p-3 mb-5 bg-body rounded w-50 post-div">
+
+<div class="row w-75 text-center post-container-post">
+
+<div class="col-9">
+ahoj
+
+</div>
+
+
+<div class="col-3">
+
+ahoj
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- <div class="shadow-lg p-3 mb-5 bg-body rounded w-75 post-div">
     {{ post.id }} <br>
 <h5>{{ post.user.username }} <br></h5>
 <hr>
@@ -18,10 +42,16 @@
     {% if user.id == post.author %}
     <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>
     <a href="/delete_post/{{post.id}}" class="btn btn-danger">Smazat</a>
-    {% endif %}
+    {% endif %} -->
+
+
+
+
+
+
+
 </div>
-
-
+</div>
 
 </center>
 

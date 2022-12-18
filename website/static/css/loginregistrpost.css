@@ -20,8 +20,9 @@
 .post-board-container{
     /* background-color: rgb(236,235,232); */
     background-image: url('../images/backgrountcomment1.jpg');
-
 }
+
+
 
 /* post_board start  */
 
@@ -70,7 +71,7 @@ overflow: hidden;
 
 .email-text{
     font-size: 1.1vw;
-    margin-top: -8% !important;
+    margin-top: -5% !important;
 }
 
 .border-user{
@@ -90,8 +91,9 @@ overflow: hidden;
 .user-a{
     all: unset;
     text-align: center;
-    font-size: 1.8vw;
-    font-family: 'Lucida Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+
     
 }
 
@@ -125,6 +127,7 @@ overflow: hidden;
 -webkit-line-clamp: 4;
 -webkit-box-orient: vertical;
 font-size: 1.4vw;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 transform: translateX(-16%);
 
@@ -137,7 +140,7 @@ transform: translateX(-16%);
 
 .comments-div{
 
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 20px;
 }
 
@@ -149,8 +152,11 @@ transform: translateX(-16%);
     margin-top: -3%;
 }
 
+
+
+
 .colapse-form{
-    background-color: #f7f6f5;
+    background-color: rgb(225,227,232);
     border: 0cm;
     resize: vertical;
 }
@@ -184,4 +190,20 @@ transform: translateX(-16%);
 /* .edit-comment-form{
     border-radius: 50px;
 } */
+
 /* post_board end  */
+
+
+
+/* post page start  */
+
+.post-container{
+    
+
+    background-image: url('../images/backgrountcomment1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* post page end */

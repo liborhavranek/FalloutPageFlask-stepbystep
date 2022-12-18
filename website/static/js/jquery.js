@@ -1,6 +1,6 @@
 
 $(function () {
-    var $element = $('.war, .booble-profile-name');
+    var $element = $('.war, .booble-profile-name, .profile-name');
     function fadeInOut () {
         $element.fadeIn(2500, function () {
             $element.fadeOut(2000, function () {
