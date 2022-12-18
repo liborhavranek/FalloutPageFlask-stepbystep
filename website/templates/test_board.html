@@ -1,0 +1,132 @@
+{% extends 'base.html' %} {% block content %}
+
+<center>
+  <div class="container-fluid post-board-container">
+    <div class="row">
+      <div class="col-3 pt-4 pb-4">
+        <h4 class="post-titles">Uživatelé</h4>
+
+        {% if current_user.is_authenticated %}
+        <p class="users-text">přihlášený uživatel:</p>
+        <div class="border-user shadow-lg">
+          {% if user.user_pic%}
+          <img
+            src="{{url_for('static', filename='images/uploads/' + user.user_pic)}}"
+            class="card-img-top post-user-image"
+            alt="..."
+          />
+
+          {% else %}
+          <img
+            src="{{url_for('static', filename='images/post-head.jpg')}}"
+            class="card-img-top post-user-image"
+            alt="..."
+          />
+          {% endif %}
+          <p class="user-text text-right">{{current_user.username}}</p>
+          <p class="email-text text-right">{{current_user.email}}</p>
+          <br />
+          <img
+            src="{{url_for('static', filename='images/valut-tec.png')}}"
+            class="image-fluid user-text-logo"
+            alt="..."
+          />
+        </div>
+        {% else %}
+        <div class="border-user shadow">
+          <p class="users-text">Nejsi přihlášen !!!</p>
+          <a class="user-a" href="/login">Přihlásit</a> <br />
+          <a class="user-a" href="/sign_up">Zaregistrovat</a>
+        </div>
+        {% endif %}
+
+        <p class="users-text">Ostatní uživatelé:</p>
+
+        <div class="border-user">
+          {% for user in users %}
+
+          <a class="user-a" href="/profil/{{user.username}}"
+            >{{user.username}}</a
+          ><br />
+
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-9 pt-4 pb-4">
+        <h4 class="post-titles">Příspěvky</h4>
+        <br />
+
+        {% for post in posts %}
+
+
+
+
+        <div class="row main-row p-2">
+        <div class="col-4 ">
+
+            <div class="blog-img">
+                {% if post.post_pic%}
+                <img
+                  src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}"
+                  class="img-fluid post-img rounded-start w-75"
+                  alt="..."
+                />
+  
+                {% else %}
+                <img
+                  src="{{url_for('static', filename='images/post-head.jpg')}}"
+                  class="img-fluid rounded-start w-75 post-img"
+                  alt="..."
+                />
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-12 mb-2">
+                    <ul class="list-group list-group-horizontal">
+                        <li> <i class="fa-regular fa-comment"></i></li>
+                        <li> <i class="fa-regular fa-comment"></i></li>
+                        <li> <i class="fa-regular fa-comment"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-8"> 
+            <div class="blog-title">
+                <h3>{{post.title}}</h3>
+            </div>
+            <div class="blog-date">
+                {{post.date_created}}
+            </div>
+            <div class="blog-text w-100">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero,
+                 eget facilisis enim ipsum id lacus. Duis condimentum augue id magna 
+                 semper rutrum. Vivamus ac leo pretium faucibus. Fusce nibh. Morbi imperdiet,
+                  mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin 
+                  sem purus in lacus. Nulla accumsan, elit sit amet varius semper, nulla
+                   mauris mollis quam, tempor suscipit diam nulla vel leo. Et harum quidem 
+                   rerum facilis est et expedita distinctio. Fusce dui leo, imperdiet in,
+                    aliquam sit amet, feugiat eu, orci. Etiam egestas wisi a erat. 
+                    In convallis. Aenean id metus id velit ullamcorper pulvinar.
+                     Ut tempus purus at lorem. Cras pede libero, dapibus nec, pretium sit 
+                     amet, tempor quis.
+            </div>
+
+        </div>
+ </div>
+
+
+
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</center>

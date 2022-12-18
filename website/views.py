@@ -163,6 +163,7 @@ def posts(username):
 @login_required
 def post(id):
     post = Post.query.filter_by(id=id).first()
+
     if not post:
         flash('Příspěvek neexistuje', category='error')
     else:

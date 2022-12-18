@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{{ ckeditor.load() }}
 <br> <br>
 <center>
 <h1>Napiš příspěvek ...</h1>
@@ -16,13 +16,13 @@
     <input class="form-control" type="file" id="post_pic" name="post_pic">
     <br>
   </div>
-  <div>
+  <div class="w-50">
 <textarea name="text" id="text" cols="10" rows="10" class="form-control w-50" placeholder="Napiš příspěvek"></textarea>
 </div>
 <br>
 <button type="submit" class="btn btn-lg btn-primary">Odeslat</button>
 </div>
   </form>
-
+  {{ ckeditor.config(name='text') }}
 </center>
 {% endblock %}

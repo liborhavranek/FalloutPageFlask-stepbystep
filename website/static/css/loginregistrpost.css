@@ -204,6 +204,34 @@ transform: translateX(-16%);
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
+
 }
 
+
+.post-page-image{
+    width: 300px;
+    height: 300px;
+    float: left;
+    padding: 10px 10px 10px 10px;
+}
+
+
+.post-title-post{
+    font-size: 2.3vw;
+    font-family: 'Archivo Black', sans-serif;
+    text-align: left;
+}
+
+
+.post-container-post{
+    width: 90%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.user-pic-post{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
 /* post page end */

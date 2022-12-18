@@ -10,20 +10,55 @@
 
 
 
-<div class="row w-75 text-center post-container-post">
+<div class="row text-center post-container-post mb-4">
 
-<div class="col-9">
-ahoj
+<div class="col-9 pb-4 pt-4 con">
+    {% if post.post_pic%}
+    <img
+      src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}"
+      class="img-fluid rounded-start post-page-image"
+      alt="..."
+      
+    />
 
+    {% else %}
+    <img
+      src="{{url_for('static', filename='images/post-head.jpg')}}"
+      class="img-fluid rounded-start post-page-image"
+      alt="..."
+    />
+    {% endif %}
+    <div class="post-title-post">
+        {{post.title}}
+    </div>
+    <div class="text-start pb-4">
+        {{post.date_created}}
+    </div>
+    <div class="">
+    <p class="text-justify">{{post.text|safe}}</p>
+</div>
 </div>
 
 
-<div class="col-3">
+<div class="col-3 pb-4 pt-4  ">
 
-ahoj
+<div class="container border-user">
+    <div class=" text-center post-title-post">Autor </div>
+    <div class="username-text">
+        <p class="">{{post.user.username}}</p>
+    </div>
+    <div>{{post.user.email}}</div>
+
+    <div class="">
+        {% if post.user.user_pic %}
+        <img src="{{url_for('static', filename='images/uploads/' + post.user.user_pic)}}" class="img-fluid user-pic-post" alt="...">
+        {% else %}
+        <img src="{{url_for('static', filename='images/raw.gif')}}" class="img-fluid user-pic-post" alt="...">
+        {% endif %}
+    </div>
 
 </div>
-
+</div>
 </div>
 
 
@@ -51,7 +86,7 @@ ahoj
 
 
 </div>
-</div>
+
 
 </center>
 
