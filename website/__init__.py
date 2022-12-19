@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor
-from creds import my_secret_key
+from ignore.creds import my_secret_key
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
