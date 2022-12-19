@@ -1,4 +1,3 @@
-# file for everything what is for logged users
 from flask import Blueprint,render_template, redirect, url_for, request, flash
 from . import db 
 from .models import User, Post
@@ -30,6 +29,7 @@ def login():
 
 @auth.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
+    at_sign = '@'
     if request.method == 'POST':
         username= request.form.get("username")
         email= request.form.get("email")
@@ -41,6 +41,8 @@ def sign_up():
         user_exist = User.query.filter_by(username=username).first()
         if email_exist:
             flash('Tento email je již zaregistrovaný', category='error')
+        elif at_sign not in email:
+            flash('Email musí mít zavináč', category='error')
         elif user_exist:
             flash('Toto přihlašovací jméno je již použito.', category='error')
         elif password1 != password2:

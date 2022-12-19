@@ -1,16 +1,20 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <center>
-<form method="POST" enctype="multipart/form-data">
-      <div class="w-50 text-start">
-        <label for="post_pic" class="form-label">Fotka k příspěvku</label>
-        <input class="form-control" type="file" id="user_pic" name="user_pic" value="{{user.user_pic}}">
-        <br>
-      </div>
-<br>
-<button type="submit" class="btn btn-lg btn-primary">Odeslat</button>
-</div>
+  <form method="POST" enctype="multipart/form-data">
+    <div class="w-50 text-start">
+      <label for="post_pic" class="form-label">Fotka k příspěvku</label>
+      <input
+        class="form-control"
+        type="file"
+        id="user_pic"
+        name="user_pic"
+        value="{{user.user_pic}}"
+      />
+      <br />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-lg btn-primary">Odeslat</button>
   </form>
 </center>
 {% endblock content %}

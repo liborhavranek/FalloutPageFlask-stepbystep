@@ -1,37 +1,58 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="container-fluid d-flex justify-content-center log-div">
-
   <div class="col-4 my-auto mx-auto valut-door">
-    <img class="img-fluid valut-tec-image" src="{{url_for('static', filename='images/valutdoor.png')}}" alt="">
+    <img
+      class="img-fluid valut-tec-image"
+      src="{{url_for('static', filename='images/valutdoor.png')}}"
+      alt=""
+    />
   </div>
 
-    <div class="col-4 w-25">
-<center>
-  <img class="img-fluid valut-tec-image" src="{{url_for('static', filename='images/valut-tec.png')}}" alt="">
+  <div class="col-4 w-25">
+    <center>
+      <img
+        class="img-fluid valut-tec-image"
+        src="{{url_for('static', filename='images/valut-tec.png')}}"
+        alt=""
+      />
 
-<h6 class="registrace">Vstup do valutu</h6>
+      <h6 class="registrace">Vstup do valutu</h6>
 
-<form method="POST">
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Přihlašovací email">
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Heslo</label>
-      <input type="password" class="form-control" name="password" id="password" placeholder="Přihlašovací heslo">
-    </div>
-    <button type="submit" class="btn btn-warning">Přihlásit</button>
-  </form>
+      <form method="POST">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            aria-describedby="emailHelp"
+            placeholder="Přihlašovací email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Heslo</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="Přihlašovací heslo"
+          />
+        </div>
+        <button type="submit" class="btn btn-warning">Přihlásit</button>
+      </form>
+    </center>
+  </div>
 
-</center>
+  <div class="col-4 my-auto mx-auto valut-door">
+    <img
+      class="img-fluid valut-tec-image"
+      src="{{url_for('static', filename='images/valutdoor.png')}}"
+      alt=""
+    />
+  </div>
 </div>
-
-<div class="col-4  my-auto mx-auto valut-door">
-  <img class="img-fluid valut-tec-image" src="{{url_for('static', filename='images/valutdoor.png')}}" alt="">
-</div>
-</div>
-
 
 {% endblock %}

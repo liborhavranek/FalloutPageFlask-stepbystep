@@ -1,27 +1,38 @@
-{% extends 'base.html' %}
-
-{% block content %}
-{{ ckeditor.load() }}
-<br> <br>
+{% extends 'base.html' %} {% block content %} {{ ckeditor.load() }} <br />
+<br />
 <center>
-<h1>Napiš příspěvek ...</h1>
+  <h1>Napiš příspěvek ...</h1>
 
-<form method="POST" enctype="multipart/form-data">
+  <form method="POST" enctype="multipart/form-data">
     <div class="mb-3 align-center">
-  <label for="title" class="form-label"></label>
-  <input type="text" class="form-control w-50" id="title" name="title" aria-describedby="emailHelp" placeholder="Titulek Příspěvku">
-  <br>
-  <div class="w-50 text-start">
-    <label for="post_pic" class="form-label">Fotka k příspěvku</label>
-    <input class="form-control" type="file" id="post_pic" name="post_pic">
-    <br>
-  </div>
-  <div class="w-50">
-<textarea name="text" id="text" cols="10" rows="10" class="form-control w-50" placeholder="Napiš příspěvek"></textarea>
-</div>
-<br>
-<button type="submit" class="btn btn-lg btn-primary">Odeslat</button>
-</div>
+      <label for="title" class="form-label"></label>
+      <input
+        type="text"
+        class="form-control w-50"
+        id="title"
+        name="title"
+        aria-describedby="emailHelp"
+        placeholder="Titulek Příspěvku"
+      />
+      <br />
+      <div class="w-50 text-start">
+        <label for="post_pic" class="form-label">Fotka k příspěvku</label>
+        <input class="form-control" type="file" id="post_pic" name="post_pic" />
+        <br />
+      </div>
+      <div class="w-50">
+        <textarea
+          name="text"
+          id="text"
+          cols="10"
+          rows="10"
+          class="form-control w-50"
+          placeholder="Napiš příspěvek"
+        ></textarea>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-lg btn-primary">Odeslat</button>
+    </div>
   </form>
   {{ ckeditor.config(name='text') }}
 </center>

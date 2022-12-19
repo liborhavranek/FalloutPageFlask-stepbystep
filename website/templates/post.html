@@ -1,71 +1,62 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <center>
-    <div class="container-fluid post-container">
-        <div class="text-center pb-4">
-            <h1>Příspěvek uživatele {{username}}</h1>
-        </div>
-
-
-
-
-<div class="row text-center post-container-post mb-4">
-
-<div class="col-9 pb-4 pt-4 con">
-    {% if post.post_pic%}
-    <img
-      src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}"
-      class="img-fluid rounded-start post-page-image"
-      alt="..."
-      
-    />
-
-    {% else %}
-    <img
-      src="{{url_for('static', filename='images/post-head.jpg')}}"
-      class="img-fluid rounded-start post-page-image"
-      alt="..."
-    />
-    {% endif %}
-    <div class="post-title-post">
-        {{post.title}}
+  <div class="container-fluid post-container">
+    <div class="text-center pb-4">
+      <h1>Příspěvek uživatele {{username}}</h1>
     </div>
-    <div class="text-start pb-4">
-        {{post.date_created}}
-    </div>
-    <div class="">
-    <p class="text-justify">{{post.text|safe}}</p>
-</div>
-</div>
 
+    <div class="row text-center post-container-post mb-4">
+      <div class="col-9 pb-4 pt-4 con">
+        {% if post.post_pic%}
+        <img
+          src="{{url_for('static', filename='images/uploads/' + post.post_pic)}}"
+          class="img-fluid rounded-start post-page-image"
+          alt="..."
+        />
 
-<div class="col-3 pb-4 pt-4  ">
-
-<div class="container border-user">
-    <div class=" text-center post-title-post">Autor </div>
-    <div class="username-text">
-        <p class="">{{post.user.username}}</p>
-    </div>
-    <div>{{post.user.email}}</div>
-
-    <div class="">
-        {% if post.user.user_pic %}
-        <img src="{{url_for('static', filename='images/uploads/' + post.user.user_pic)}}" class="img-fluid user-pic-post" alt="...">
         {% else %}
-        <img src="{{url_for('static', filename='images/raw.gif')}}" class="img-fluid user-pic-post" alt="...">
+        <img
+          src="{{url_for('static', filename='images/post-head.jpg')}}"
+          class="img-fluid rounded-start post-page-image"
+          alt="..."
+        />
         {% endif %}
+        <div class="post-title-post">{{post.title}}</div>
+        <div class="text-start pb-4">{{post.date_created}}</div>
+        <div class="">
+          <p class="text-justify">{{post.text|safe}}</p>
+        </div>
+      </div>
+
+      <div class="col-3 pb-4 pt-4">
+        <div class="container border-user">
+          <div class="text-center post-title-post">Autor</div>
+          <div class="username-text">
+            <p class="">{{post.user.username}}</p>
+          </div>
+          <div>{{post.user.email}}</div>
+
+          <div class="">
+            {% if post.user.user_pic %}
+            <img
+              src="{{url_for('static', filename='images/uploads/' + post.user.user_pic)}}"
+              class="img-fluid user-pic-post"
+              alt="..."
+            />
+            {% else %}
+            <img
+              src="{{url_for('static', filename='images/raw.gif')}}"
+              class="img-fluid user-pic-post"
+              alt="..."
+            />
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
 
-</div>
-</div>
-</div>
-
-
-
-
-
-<!-- <div class="shadow-lg p-3 mb-5 bg-body rounded w-75 post-div">
+    <!-- <div class="shadow-lg p-3 mb-5 bg-body rounded w-75 post-div">
     {{ post.id }} <br>
 <h5>{{ post.user.username }} <br></h5>
 <hr>
@@ -78,17 +69,7 @@
     <a href="/edit_post/{{post.id}}" class="btn btn-secondary">Upravit</a>
     <a href="/delete_post/{{post.id}}" class="btn btn-danger">Smazat</a>
     {% endif %} -->
-
-
-
-
-
-
-
-</div>
-
-
+  </div>
 </center>
-
 
 {% endblock %}
