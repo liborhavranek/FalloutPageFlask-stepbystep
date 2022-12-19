@@ -431,3 +431,12 @@ def bobbleheads_map():
 @views.route('/maps')
 def maps():
     return render_template('maps.html', user=current_user)
+
+
+@views.route('/lists')
+def lists():
+    return render_template('lists.html', user=current_user)
+
+@views.route('/company')
+def company():
+    return render_template('company.html', user=current_user)
