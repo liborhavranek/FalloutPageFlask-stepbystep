@@ -1023,3 +1023,12 @@ $(document).ready(function(){
     }
   });
   //energyweapon funciton end👆
+
+
+  $(document).ready(function(){
+    $(".animated-text").on({
+        mouseenter: function(){
+            $(this).css("color", "red");
+        }
+    });    
+});

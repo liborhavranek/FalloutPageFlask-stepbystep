@@ -38,6 +38,10 @@ font-size: 2vw;
     text-align: justify;
 }
 
+.changing-text-container{
+    padding: 8%;
+}
+
 .valut-boy{
     margin-top: 24%;
 }
@@ -140,6 +144,34 @@ font-size: 2vw;
     margin-bottom: -1px !important;
 }
 
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+
+
+
 /* paticka section end */
 
+
+
+/* 
+text effect */
+
+.hide-text-home{
+    display:none
+}
+
+.extend-text{
+position: relative;
+font-size: 6vw;
+color: rgb(221,183,36);
+font-weight: 300;
+font-family: 'Rubik Distressed', cursive;
+text-shadow: 0 10px 8px rgba(0,0,0,0.5);
+}
+
+.extend-text:hover + .hide-text-home{
+    display: block;
+  }
 
