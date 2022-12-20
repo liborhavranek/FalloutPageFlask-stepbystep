@@ -7,6 +7,47 @@
     opacity: 0.9;
 
 }
+
+.first-container{
+    background-color:rgb(33,106,201) ;
+}
+
+.rotate-image{
+    -webkit-animation: spin 10s linear infinite;
+    -moz-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+}
+
+@-webkit-keyframes spin{
+    100%{-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes spin{
+    100%{-webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin{
+    100%{-webkit-transform: rotate(360deg);}
+}
+
+.wheel-text{
+     position: relative;
+    font-size: 4vw;
+    color: rgb(221,183,36);
+    font-weight: 300; 
+    font-family: 'Rubik Distressed', cursive;
+    text-shadow: 0 10px 8px rgba(0,0,0,0.5);
+
+}
+
+.valut-boy-bobble{
+    width: 20%;
+}
+
+.gray-line{
+    background-color: rgb(150,150,150);
+    font-size: 3vw;
+}
 /* image section end */
 
 
@@ -45,10 +86,9 @@
 }
 
 .go-to-map{
-    font-size: 5vw;
+    font-size: 3vw;
     font-family: 'Oswald', bold;
-    text-align: center;
-    margin: auto;
+
 }
 
 .go-to-map :hover{
@@ -173,3 +213,5 @@
 }
 
 /* booblehead section end */
+
+

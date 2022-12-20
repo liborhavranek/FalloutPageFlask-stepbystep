@@ -10,22 +10,57 @@
 <!--bobblehead image section start 👇-->
 
 
-    <div>
-<img class="img-fluid responsive" src="{{url_for('static', filename='images/page_head/bobblehead-page-pic.png')}}" alt="">
-    </div>
+    <div class="container-fluid first-container text-center pt-4 pb-4">
+      <div class="row">
+        <div class="col-3 my-auto mx-auto valut-boy-bobble">
+          <img
+          class="img-fluid valut-tec-image"
+          src="{{url_for('static', filename='images/valutboyleft.png')}}"
+          alt=""
+        />
+        </div>
+        <div class="col-6 ">
+<img class="img-fluid rotate-image w-50" src="{{url_for('static', filename='images/valutdoor20.png')}}" alt="">
+</div>
+<div class="col-3 my-auto mx-auto valut-boy-bobble">
+  <img
+  class="img-fluid valut-tec-image"
+  src="{{url_for('static', filename='images/valutboyright.png')}}"
+  alt=""
+/>
+  
+</div>
+</div>
+<div class="row wheel-text text-center">
+Najdi všech 20 bambulek rozesetých po celé pustině
 
-    <div class="war">
-        Bobbleheads
-    </div>
-    
+</div>
+
+
+</div>
+
+<div class="container-fluid  ">
+  <div class="row my-auto gray-line go-to-map">
+    <p class="text-center"> <a href="bobbleheads-map">Přejít na mapu >>></a> </p> 
+  </div>
+</div>
 
     <!--bobblehead image section end 👆-->
 
 <!--bobblehead map section start 👇-->
 
-<section class="bobbleheadmap">
+<!-- <section class="bobbleheadmap">
     <div class="container bobblehead-description">
     <div class="row">
+
+
+      <div>
+        <img class="img-fluid responsive pt-3" src="{{url_for('static', filename='images/dvacet.gif')}}" alt="">
+            </div>
+    
+
+
+
       <div class="col-6  bobble-game-description">
         <br>
         <br>
@@ -44,13 +79,14 @@
     </div>
     </div>
     
-    </section>
+    </section> -->
 
 <!--bobblehead center start 👇-->
 
 <section>
 
     <div class="container-fluid bobblehead-center">
+     
       <div class="row">
     
         <div class="col-4"> <img class="side-bobble" src="{{url_for('static', filename='images/bobbleheads/agility_bobblehead.png')}}" alt="">

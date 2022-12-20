@@ -440,3 +440,5 @@ def lists():
 @views.route('/company')
 def company():
     return render_template('company.html', user=current_user)
+
+
