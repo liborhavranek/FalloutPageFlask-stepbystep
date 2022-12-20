@@ -1,0 +1,21 @@
+app.py -file 
+website/ -folder 
+	views.py - file
+	models.py - file
+	auth.py - file
+	__init__.py - file
+
+	static/ -folder
+		css/ -folder
+			style.css - file
+			maps.css - file
+			trophy.css - file
+		images/ -folder
+			raw.gif - file
+			valutboy.png - file
+			special.jpg - file
+		js/ - folder
+			jquery.js -file
+			myscript.file -file
+	templates/ - folder
+	__pycache__/ - folder
