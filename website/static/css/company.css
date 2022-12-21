@@ -5,7 +5,7 @@ background-color: rgb(236,235,232);
 .flip-card {
     background-color: transparent;
     width: 350px;
-    height: 350px;
+    height: 450px;
     perspective: 1000px;
   }
   
