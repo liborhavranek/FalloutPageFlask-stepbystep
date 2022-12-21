@@ -1,0 +1,60 @@
+.list-text-comix{
+all:unset;
+position: relative;
+font-size: 3vw;
+color: rgb(221,183,36);
+font-weight: 300; 
+font-family: 'Rubik Distressed', cursive;
+text-shadow: 0 10px 8px rgba(0,0,0,0.5);
+}
+
+
+.comix-a{
+    all:unset;
+}
+
+.comix-menu:hover{
+    transform: scale(1.2);
+}
+
+
+
+.flip-card-comix {
+    background-color: transparent;
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .flip-card-comix:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+    background-color: white;
+    color: black;
+  }
+  
+  .flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+  }

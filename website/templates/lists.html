@@ -1,13 +1,269 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="text=center">
+<div class="container-fluid py-5 company-container">
 
-<h1>V přípravě</h1>
-<br>
-<br>
+    <div class="war-1">Komiksy</div>
+
+
+
+
+<div class="row">
+
+<div class="col-8">
+
+
+    
+
+    <div id="accordion">
+
+        <div class="collapse show" id="collapseOne" data-bs-parent="#accordion">
+
+
+            <div class="pb-5 text-center"><h1 class="list-text-comix ">Úžasné příběhy</h1></div>
+
+            <div class="row row-cols-1 row-cols-lg-3 mx-5 g-4">
+
+                <div class="col">
+                    <div class="flip-card-comix">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <img
+                            class="img-fluid valut-tec-image"
+                            src="{{url_for('static', filename='images/comiks/AwesomeTales6.jpg')}}"
+                            alt=""
+                          />
+                          </div>
+                          <div class="flip-card-back py-3">
+                            <h5>lokace:</h5> 
+                            <p>Skylanes Flight 1981</p>
+                            <h5>bonus:</h5> 
+                            <p>Nyní způsobuješ o 5% větší zranění mirelurkům</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="col">
+                        <div class="flip-card-comix">
+                            <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                                <img
+                                class="img-fluid valut-tec-image"
+                                src="{{url_for('static', filename='images/comiks/AwesomeTales6.jpg')}}"
+                                alt=""
+                              />
+                              </div>
+                              <div class="flip-card-back px-3">
+                                <h1>Cait</h1> 
+                                <h5>Má ráda:</h5> 
+                                <p>Páčení zámků nebo krádeže, násilné chování, být zlý nebo vyhrožovat v dialozích, chodit nahý, chtít za pomoc peníze </p>
+                                <h5>Nemá ráda:</h5> 
+                                <p>Vyhýbání se boji, dobrosrdenství, štědrost, milost a nemá ráda když pojídáte mrtvoly nebo užíváte drogy, Brotherhood of Steal, zabíjení nepřátelských NPC </p>
+                                <h5>Perk:</h5> 
+                                <p> Pokud tvé zdraví klesne pod 25 % urychlí se regenerace tvých akčních bodů.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+    
+
+
+
+
+
+
+                        <div class="col">
+                            <div class="flip-card-comix">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img
+                                    class="img-fluid valut-tec-image"
+                                    src="{{url_for('static', filename='images/comiks/AwesomeTales6.jpg')}}"
+                                    alt=""
+                                  />
+                                  </div>
+                                  <div class="flip-card-back px-3">
+                                    <h1>Cait</h1> 
+                                    <h5>Má ráda:</h5> 
+                                    <p>Páčení zámků nebo krádeže, násilné chování, být zlý nebo vyhrožovat v dialozích, chodit nahý, chtít za pomoc peníze </p>
+                                    <h5>Nemá ráda:</h5> 
+                                    <p>Vyhýbání se boji, dobrosrdenství, štědrost, milost a nemá ráda když pojídáte mrtvoly nebo užíváte drogy, Brotherhood of Steal, zabíjení nepřátelských NPC </p>
+                                    <h5>Perk:</h5> 
+                                    <p> Pokud tvé zdraví klesne pod 25 % urychlí se regenerace tvých akčních bodů.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+        
+
+
+
+
+
+
+
+
+                
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="collapse" id="collapseTwo" data-bs-parent="#accordion">
+
+ahojky
+
+        </div>
+
+    </div>
+
 
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-4">
+
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseOne">
+            <h1 class="list-text-comix">Úžasné příběhy</h1>
+          </a>
+    </div>
+
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseTwo">
+            <h1 class="list-text-comix">Barbar Gornak</h1>
+          </a>
+    </div>
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseThree">
+            <h1 class="list-text-comix">Zbraně a střelivo</h1>
+          </a>
+    </div>
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseFour">
+            <h1 class="list-text-comix">Život & Láska</h1>
+          </a>
+    </div>
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseFive">
+            <h1 class="list-text-comix">Chirurgický žurnál</h1>
+          </a>
+    </div>
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseSix">
+            <h1 class="list-text-comix">Příběhy prodavače</h1>
+          </a>
+    </div>
+
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseSeven">
+            <h1 class="list-text-comix">Vědecký magazín</h1>
+          </a>
+    </div>
+
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseEight">
+            <h1 class="list-text-comix">Dnešní sklenka</h1>
+          </a>
+    </div>
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseNine">
+            <h1 class="list-text-comix">U.S. Tajné operace</h1>
+          </a>
+    </div>
+
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseTeen">
+            <h1 class="list-text-comix">Nezastavitený</h1>
+          </a>
+    </div>
+
+    <div class="comix-menu">
+        <a class="comix-a" data-bs-toggle="collapse" href="#collapseEleven">
+            <h1 class="list-text-comix">Příručka přežití</h1>
+          </a>
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
 
 
 {% endblock %}

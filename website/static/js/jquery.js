@@ -18,89 +18,126 @@ $(function () {
     $(".alert").fadeOut(4000)
 });
 
+$(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
 
 
 $(document).ready(function(){
     $(".hide").hide();  
     $(".meele-booblehead").click(function(){
       $(".meele-booblehead-description").toggle();
-      
+       // Hide the other elements
+      $(".explosive-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
     });
   
     $(".explosive-booblehead").click(function(){
       $(".explosive-booblehead-description").toggle();
+      $(".meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".sneak-booblehead").click(function(){
       $(".sneak-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".barter-booblehead").click(function(){
       $(".barter-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".perception-booblehead").click(function(){ 
       $(".perception-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".strength-booblehead").click(function(){ 
       $(".strength-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".speech-booblehead").click(function(){ 
       $(".speech-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".charisma-booblehead").click(function(){
       $(".charisma-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".lock-booblehead").click(function(){
       $(".lock-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".smallguns-booblehead").click(function(){ 
       $(".smallguns-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".bigguns-booblehead").click(function(){ 
       $(".bigguns-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".medicine-booblehead").click(function(){ 
-      $(".medicine-booblehead-description").toggle(); 
+      $(".medicine-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".intelligence-booblehead").click(function(){ 
       $(".intelligence-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".endurance-booblehead").click(function(){
       $(".endurance-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".unarmed-booblehead").click(function(){
       $(".unarmed-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
     });
   
     $(".agility-booblehead").click(function(){  
       $(".agility-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".energyweapon").click(function(){
       $(".energyweapon-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .luck-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
     });
   
     $(".luck-booblehead").click(function(){ 
       $(".luck-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .repair-booblehead-description, .science-booblehead-description").hide();
+
     });
   
     $(".repair-booblehead").click(function(){ 
       $(".repair-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .science-booblehead-description").hide();
     });
   
     $(".science-booblehead").click(function(){
       $(".science-booblehead-description").toggle();
+      $(".explosive-booblehead-description, .meele-booblehead-description, .sneak-booblehead-description, .barter-booblehead-description, .perception-booblehead-description, .strength-booblehead-description, .speech-booblehead-description, .charisma-booblehead-description, .lock-booblehead-description, .smallguns-booblehead-description, .bigguns-booblehead-description, .medicine-booblehead-description, .intelligence-booblehead-description, .endurance-booblehead-description, .unarmed-booblehead-description, .agility-booblehead-description, .energyweapon-booblehead-description, .luck-booblehead-description, .repair-booblehead-description").hide();
+
     });
   
   });
