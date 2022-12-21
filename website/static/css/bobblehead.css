@@ -212,6 +212,10 @@
     padding-bottom: 1%;
 }
 
+.bobble-scale:hover{
+    transform: scale(1.2);
+}
+
 /* booblehead section end */
 
 
